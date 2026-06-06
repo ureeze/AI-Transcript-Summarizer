@@ -335,3 +335,31 @@ Git 브랜치 정책은 `feature/* -> develop -> main` 흐름을 기준으로 �
 ### 다음 작업
 
 테스트/빌드 확인 후 `feature/update-git-workflow` 브랜치에 한국어 커밋 메시지로 커밋하고 GitHub에 push한다.
+
+## 2026-06-06 22:53
+
+### 완료한 작업
+
+- `develop`에서 `feature/update-agents-review-pr-policy` 브랜치를 생성했다.
+- `AGENTS.md` 작업 절차에 코드 리뷰 수행, Pull Request 생성 단계를 추가했다.
+- 작업 종료 원칙에 Git 커밋과 GitHub push 필수 조건 및 보류 기록 조건을 명확히 유지했다.
+- Git 관리 규칙에 Pull Request 정책을 추가했다.
+- 개발 원칙에 커밋 전 `git diff` 기준 코드 리뷰 규칙과 검토 항목을 추가했다.
+- 작업 종료 체크리스트에 코드 리뷰 완료와 Pull Request 생성 항목을 추가했다.
+- `active-context.md`를 현재 작업 상태 기준으로 갱신했다.
+- 백엔드 `.\gradlew.bat test` 성공을 확인했다.
+- 프론트엔드 `npm run build` 성공을 확인했다.
+
+### 현재 상태
+
+AGENTS 작업 흐름 정책 변경이 문서에 반영되었다.
+
+### 남은 작업
+
+- Git 커밋
+- GitHub push
+- Pull Request 생성
+
+### 다음 작업
+
+변경 diff를 최종 리뷰하고, 문제가 없으면 커밋 후 GitHub에 push한 다음 `develop` 대상 Pull Request를 생성한다.
