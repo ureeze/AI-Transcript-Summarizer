@@ -54,11 +54,13 @@ memory-bank/
 3. 현재 상태 파악
 4. 구현 수행
 5. 테스트 수행
-6. 문서 업데이트
-7. Git 상태 확인
-8. 커밋 생성
-9. GitHub push
-10. 다음 작업 정의
+6. 코드 리뷰 수행
+7. 문서 업데이트
+8. Git 상태 확인
+9. 커밋 생성
+10. GitHub push
+11. Pull Request 생성
+12. 다음 작업 정의
 
 문서 업데이트 없이 작업을 종료해서는 안 된다.
 
@@ -239,10 +241,29 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 
 - 테스트 수행
 - 빌드 확인
+- 코드 리뷰 수행
 - 문서 업데이트
 - Git 커밋
 - GitHub push
+- Pull Request 생성
 - 다음 작업 정의
+
+### 코드 리뷰 규칙
+
+커밋 전 반드시 현재 변경사항(`git diff` 기준)을 리뷰한다.
+
+검토 항목:
+
+- 버그 가능성
+- 예외 처리 누락
+- 보안 문제
+- 테스트 누락
+- 성능 문제
+- 불필요한 코드
+- 기존 아키텍처 위반 여부
+- 문서 업데이트 필요 여부
+
+심각한 문제가 발견된 경우 수정 후 테스트를 다시 수행한다.
 
 ---
 
@@ -283,6 +304,18 @@ git checkout -b feature/user-api
 - 모든 커밋은 작업 브랜치(`feature/*`)에서 수행하는 것을 원칙으로 한다.
 - `develop` 브랜치에는 Pull Request 또는 검증된 머지 작업만 반영한다.
 - `main` 브랜치에는 `develop` 검증 후 Pull Request 또는 검증된 머지 작업만 반영한다.
+
+### Pull Request 정책
+
+- `feature/*` 브랜치 작업 완료 후 Pull Request를 생성한다.
+- PR 생성 전 반드시 확인한다.
+  - 테스트 성공
+  - 빌드 성공
+  - Memory Bank 업데이트 완료
+  - 코드 리뷰 완료
+  - `git status` 확인
+- PR 생성 후 변경 파일과 변경 내용을 최종 검토한다.
+- `develop` 브랜치는 충분한 검증 후 `main` 브랜치로 병합한다.
 
 ### 기본 원칙
 
@@ -367,6 +400,7 @@ git checkout -b feature/user-api
 - [ ] 구현 완료
 - [ ] 테스트 완료
 - [ ] 빌드 성공 확인
+- [ ] 코드 리뷰 완료
 - [ ] active-context.md 업데이트
 - [ ] progress.md 업데이트
 - [ ] 필요 시 implementation-plan.md 업데이트
@@ -375,6 +409,7 @@ git checkout -b feature/user-api
 - [ ] git status 확인
 - [ ] Git 커밋 생성
 - [ ] GitHub push 완료
+- [ ] Pull Request 생성
 - [ ] 다음 작업 정의
 
 위 항목 중 하나라도 완료되지 않았다면 작업을 종료하지 않는다.
