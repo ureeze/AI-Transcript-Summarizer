@@ -6,7 +6,7 @@ MVP v1 개발 운영 규칙 정비
 
 ## 현재 작업
 
-`AGENTS.md`에 작업 절차, 코드 리뷰 규칙, Pull Request 정책을 추가하고 작업 완료 기준을 강화했다. 백엔드 테스트와 프론트엔드 빌드는 통과했다.
+`AGENTS.md`에 작업 절차, 코드 리뷰 규칙, Pull Request 정책을 추가하고 작업 완료 기준을 강화했다. 백엔드 테스트와 프론트엔드 빌드는 통과했고, 변경사항은 커밋 후 GitHub에 push되었다.
 
 ## 최근 결정 사항
 
@@ -19,6 +19,7 @@ MVP v1 개발 운영 규칙 정비
 - `feature/*` 브랜치 작업 완료 후 Pull Request를 생성한다.
 - PR 생성 전 테스트 성공, 빌드 성공, Memory Bank 업데이트, 코드 리뷰 완료, `git status` 확인을 완료한다.
 - PR 생성 후 변경 파일과 변경 내용을 최종 검토한다.
+- `feature/update-agents-review-pr-policy` 브랜치는 `origin/feature/update-agents-review-pr-policy`에 push되었다.
 
 ## 열린 이슈
 
@@ -26,10 +27,10 @@ MVP v1 개발 운영 규칙 정비
 - 프론트엔드와 백엔드 배포 URL은 아직 확정되지 않았다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
 - 현재 작업 브랜치는 `feature/update-agents-review-pr-policy`이다.
+- `feature/update-agents-review-pr-policy`에서 `develop`으로 Pull Request 생성 시 GitHub MCP 호출 승인이 거부되어 PR 생성이 보류되었다.
 
 ## 다음 작업
 
-1. 변경된 `AGENTS.md` 정책을 diff 기준으로 최종 리뷰한다.
-2. 문서 변경 사항을 커밋하고 GitHub에 push한다.
-3. `feature/update-agents-review-pr-policy`에서 `develop`으로 Pull Request를 생성한다.
-4. 이후 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+1. 사용자 승인 후 `feature/update-agents-review-pr-policy`에서 `develop`으로 Pull Request를 생성한다.
+2. PR 생성 후 변경 파일과 변경 내용을 최종 검토한다.
+3. 이후 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.

@@ -349,6 +349,9 @@ Git 브랜치 정책은 `feature/* -> develop -> main` 흐름을 기준으로 �
 - `active-context.md`를 현재 작업 상태 기준으로 갱신했다.
 - 백엔드 `.\gradlew.bat test` 성공을 확인했다.
 - 프론트엔드 `npm run build` 성공을 확인했다.
+- `AGENTS 작업 리뷰와 PR 정책 추가` 커밋을 생성했다.
+- `feature/update-agents-review-pr-policy` 브랜치를 GitHub에 push했다.
+- GitHub MCP로 Pull Request 생성을 시도했지만 사용자 승인 거부로 생성이 보류되었다.
 
 ### 현재 상태
 
@@ -356,10 +359,8 @@ AGENTS 작업 흐름 정책 변경이 문서에 반영되었다.
 
 ### 남은 작업
 
-- Git 커밋
-- GitHub push
 - Pull Request 생성
 
 ### 다음 작업
 
-변경 diff를 최종 리뷰하고, 문제가 없으면 커밋 후 GitHub에 push한 다음 `develop` 대상 Pull Request를 생성한다.
+사용자 승인 후 `feature/update-agents-review-pr-policy`에서 `develop`으로 Pull Request를 생성한다.
