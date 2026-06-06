@@ -290,6 +290,27 @@ Git 관리 규칙은 브랜치 기반 작업 흐름을 따르도록 변경되었
 
 테스트/빌드 확인 후 `feature/update-git-workflow` 브랜치에 한국어 커밋 메시지로 커밋하고 GitHub에 push한다.
 
+## 2026-06-06 11:45
+
+### 완료한 작업
+
+- 백엔드 `.\gradlew.bat test` 성공을 확인했다.
+- 프론트엔드 `npm run build` 성공을 확인했다.
+- `브랜치 정책 구체화` 커밋을 로컬에 생성했다.
+
+### 현재 상태
+
+브랜치 정책 변경 커밋은 로컬 `feature/update-git-workflow` 브랜치에 생성되었지만, GitHub push 승인이 거절되어 원격 반영은 보류되었다.
+
+### 남은 작업
+
+- 보류된 로컬 커밋을 `origin/feature/update-git-workflow`에 push
+- 이후 로컬 환경에서 실제 `OPENAI_API_KEY` 설정 후 전체 흐름 검증
+
+### 다음 작업
+
+사용자 승인 후 `git push`를 다시 실행해 로컬 커밋을 GitHub에 반영한다.
+
 ## 2026-06-06 11:35
 
 ### 완료한 작업
