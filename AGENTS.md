@@ -261,12 +261,13 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 
 ### 커밋 메시지
 
+- 커밋 메시지는 한국어로 작성한다.
 - 커밋 메시지는 작업 단위가 드러나도록 짧고 명확하게 작성한다.
 - 예시:
-  - `Implement YouTube transcript extraction service`
-  - `Integrate OpenAI summarize API`
-  - `Add frontend error states`
-  - `Update memory bank workflow`
+  - `유튜브 자막 추출 서비스 구현`
+  - `OpenAI 요약 API 연동`
+  - `프론트엔드 에러 상태 추가`
+  - `Memory Bank 작업 흐름 업데이트`
 
 ### 예외 상황
 

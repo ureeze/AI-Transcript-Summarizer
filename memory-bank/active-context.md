@@ -2,11 +2,11 @@
 
 ## 현재 마일스톤
 
-MVP v1 YouTube 공개 자막 추출 구현
+MVP v1 OpenAI 요약 연동 구현
 
 ## 현재 작업
 
-작업 종료 시 Git 커밋과 GitHub push를 수행하도록 `AGENTS.md` 운영 규칙을 추가했다.
+추출된 유튜브 자막을 OpenAI Chat Completions API로 요약하도록 연동했다.
 
 ## 최근 결정 사항
 
@@ -26,17 +26,19 @@ MVP v1 YouTube 공개 자막 추출 구현
 - `YouTubeTranscriptService`는 video ID 추출, 공개 자막 트랙 조회, json3 자막 텍스트 구성을 담당한다.
 - 자막을 가져올 수 없는 경우 `이 영상의 자막을 가져올 수 없습니다.` 메시지를 반환한다.
 - 작업 완료 후에는 테스트/빌드, Memory Bank 업데이트, Git 커밋, GitHub push까지 수행한다.
+- 커밋 메시지는 한국어로 작성한다.
+- OpenAI 연동은 PRD의 `gpt-4o-mini` 요구사항에 맞춰 Chat Completions API를 사용한다.
+- `OPENAI_API_KEY`는 백엔드 환경변수로만 관리한다.
+- `SummaryService`는 자막 추출 후 `OpenAiSummaryClient`를 호출해 실제 요약 응답을 반환한다.
 
 ## 열린 이슈
 
-- 현재 백엔드 응답은 자막 추출 후 OpenAI 연동 전 더미 요약 응답이다.
 - 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
-- OpenAI API Key와 배포 환경변수는 아직 설정되지 않았다.
+- 로컬/배포 환경에 실제 `OPENAI_API_KEY`를 설정해야 한다.
 - 프론트엔드와 백엔드 배포 URL은 아직 정해지지 않았다.
-- 현재 작업 트리에는 YouTube 자막 추출 구현과 AGENTS.md Git 규칙 변경이 아직 커밋되지 않았다.
 
 ## 다음 작업
 
-1. OpenAI API 연동 방식을 구현한다.
-2. 추출된 자막을 `gpt-4o-mini` 요약 요청에 연결한다.
-3. 로컬에서 백엔드/프론트엔드 전체 흐름을 검증한다.
+1. 로컬에서 `OPENAI_API_KEY`를 설정하고 백엔드/프론트엔드 전체 흐름을 검증한다.
+2. 프론트엔드 에러 메시지 처리를 API 응답 메시지 기반으로 개선한다.
+3. Render/Vercel 배포 설정을 진행한다.

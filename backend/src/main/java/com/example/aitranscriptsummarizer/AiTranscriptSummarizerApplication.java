@@ -1,8 +1,11 @@
 package com.example.aitranscriptsummarizer;
 
+import com.example.aitranscriptsummarizer.summary.OpenAiProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@EnableConfigurationProperties(OpenAiProperties.class)
 @SpringBootApplication
 public class AiTranscriptSummarizerApplication {
 

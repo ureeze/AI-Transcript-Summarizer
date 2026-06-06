@@ -232,3 +232,33 @@ Gradle Wrapper를 추가하거나 Gradle 설치 후 백엔드 `gradle test` 또�
 ### 다음 작업
 
 현재 변경 사항을 의미 있는 커밋 단위로 정리해 GitHub에 push한다.
+
+## 2026-06-06 11:05
+
+### 완료한 작업
+
+- `AGENTS.md`에 커밋 메시지를 한국어로 작성하는 규칙을 추가했다.
+- OpenAI Chat Completions API 연동을 위한 `OpenAiProperties`를 추가했다.
+- `OpenAiSummaryClient`를 추가해 `gpt-4o-mini` 호출, JSON 응답 파싱, 실패 처리를 구현했다.
+- `SummaryService`의 더미 응답을 제거하고 자막 추출 결과를 OpenAI 요약 클라이언트에 전달하도록 변경했다.
+- 요약 생성 실패 시 `502 Bad Gateway`와 사용자 메시지를 반환하는 예외 처리를 추가했다.
+- README에 `OPENAI_API_KEY`와 `VITE_API_BASE_URL` 환경변수 설명을 추가했다.
+- OpenAI 응답 파싱, API Key 누락, 실패 응답 테스트를 추가했다.
+- 백엔드 `.\gradlew.bat test` 성공을 확인했다.
+- 프론트엔드 `npm run build` 성공을 확인했다.
+
+### 현재 상태
+
+백엔드는 `youtubeUrl -> 공개 자막 추출 -> OpenAI gpt-4o-mini 요약 -> JSON 응답` 흐름으로 구현되었다.
+
+### 남은 작업
+
+- 로컬 환경에서 실제 `OPENAI_API_KEY` 설정 후 전체 흐름 검증
+- 프론트엔드 API 에러 메시지 표시 개선
+- Render 백엔드 배포
+- Vercel 프론트엔드 배포
+- 운영 URL에서 실제 요약 동작 확인
+
+### 다음 작업
+
+실제 `OPENAI_API_KEY`를 설정하고 백엔드/프론트엔드를 함께 실행해 유튜브 URL 입력부터 요약 결과 표시까지 검증한다.

@@ -4,3 +4,8 @@ server:
 spring:
   application:
     name: ai-transcript-summarizer
+
+openai:
+  api-key: ${OPENAI_API_KEY:}
+  model: gpt-4o-mini
+  chat-completions-url: https://api.openai.com/v1/chat/completions

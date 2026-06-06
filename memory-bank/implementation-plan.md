@@ -71,11 +71,14 @@ backend/
     AiTranscriptSummarizerApplication.java
     summary/
       ApiErrorResponse.java
+      OpenAiProperties.java
+      OpenAiSummaryClient.java
       SummarizeRequest.java
       SummarizeResponse.java
       SummaryController.java
       SummaryExceptionHandler.java
       SummaryService.java
+      SummaryGenerationException.java
       TranscriptUnavailableException.java
       YouTubeTranscriptService.java
   src/main/resources/
@@ -83,6 +86,7 @@ backend/
   src/test/java/com/example/aitranscriptsummarizer/
     AiTranscriptSummarizerApplicationTests.java
     summary/
+      OpenAiSummaryClientTests.java
       YouTubeTranscriptServiceTests.java
 ```
 
@@ -128,15 +132,22 @@ Response:
   - `POST /api/summarize`
   - local Vite dev server CORS 허용
 - `SummaryService`
-  - 현재는 자막 추출 후 더미 요약 응답 반환
-  - 이후 OpenAI API 연동으로 교체
   - YouTube 자막 추출 결과를 입력으로 사용
-  - prompt 구성
-  - OpenAI API 호출
-  - JSON 응답 파싱
+  - `OpenAiSummaryClient`를 호출해 실제 요약 응답 반환
+- `OpenAiSummaryClient`
+  - Chat Completions API 호출
+  - 모델은 `gpt-4o-mini`
+  - `response_format`은 JSON object 사용
+  - OpenAI 응답 JSON을 `summary`, `keyPoints`, `keywords`로 파싱
+  - API 호출 실패, API Key 누락, 응답 형식 오류를 `SummaryGenerationException`으로 처리
+- `OpenAiProperties`
+  - `OPENAI_API_KEY` 환경변수 기반 API Key 설정
+  - 기본 모델: `gpt-4o-mini`
+  - 기본 URL: `https://api.openai.com/v1/chat/completions`
 - `SummaryExceptionHandler`
   - 유효성 검증 실패 시 사용자 메시지 반환
   - 자막 추출 실패 시 `422 Unprocessable Entity`와 `이 영상의 자막을 가져올 수 없습니다.` 반환
+  - 요약 생성 실패 시 `502 Bad Gateway`와 `요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요.` 반환
 - 환경변수
   - `OPENAI_API_KEY`
 
@@ -184,3 +195,5 @@ Response:
 - 백엔드 video ID 추출 테스트: 성공
 - 백엔드 자막 추출 실패 처리 테스트: 성공
 - 프론트엔드 `npm run build`: 성공
+- 백엔드 OpenAI 응답 파싱 테스트: 성공
+- 백엔드 OpenAI API Key 누락/실패 응답 테스트: 성공
