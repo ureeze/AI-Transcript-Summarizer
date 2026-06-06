@@ -174,3 +174,61 @@ Gradle Wrapper를 추가하거나 Gradle 설치 후 백엔드 `gradle test` 또�
 ### 다음 작업
 
 유튜브 자막 추출 방식을 결정하고, 영상 ID 추출 및 자막 조회 서비스를 구현한다.
+
+## 2026-06-06 10:25
+
+### 완료한 작업
+
+- YouTube 자막 추출 방식을 비공식 공개 자막 추출 방식으로 결정했다.
+- 이 결정을 `memory-bank/implementation-plan.md`와 `memory-bank/task-log/2026-06.md`에 기록했다.
+- `YouTubeTranscriptService`를 추가했다.
+- YouTube URL에서 video ID를 추출하는 로직을 구현했다.
+- YouTube watch page에서 공개 자막 트랙을 찾고 json3 자막 텍스트를 구성하는 로직을 구현했다.
+- 자막을 가져올 수 없는 경우 `TranscriptUnavailableException`을 발생시키도록 구현했다.
+- 자막 추출 실패 시 `422 Unprocessable Entity`와 `이 영상의 자막을 가져올 수 없습니다.` 메시지를 반환하는 예외 핸들러를 추가했다.
+- `SummaryService`가 `YouTubeTranscriptService`를 호출하도록 연결했다.
+- video ID 추출, 자막 트랙 없음, 자막 텍스트 구성, API 실패 응답 테스트를 추가했다.
+- 백엔드 `.\gradlew.bat test` 성공을 확인했다.
+- 프론트엔드 `npm run build` 성공을 확인했다.
+
+### 현재 상태
+
+백엔드는 유튜브 URL에서 공개 자막을 추출한 뒤 더미 요약 응답을 반환한다. 아직 OpenAI API 연동은 구현되지 않았다.
+
+### 남은 작업
+
+- OpenAI API 연동
+- 추출 자막을 실제 요약 프롬프트에 전달
+- OpenAI JSON 응답 파싱
+- OpenAI 실패 처리
+- 백엔드/프론트엔드 전체 로컬 실행 검증
+- 배포
+
+### 다음 작업
+
+`OPENAI_API_KEY` 환경변수를 사용하는 OpenAI 요약 클라이언트를 구현하고 `SummaryService`의 더미 응답을 실제 AI 요약 응답으로 교체한다.
+
+## 2026-06-06 10:35
+
+### 완료한 작업
+
+- `AGENTS.md`에 작업 종료 시 Git 커밋과 GitHub push를 수행하는 규칙을 추가했다.
+- 작업 절차와 작업 종료 체크리스트에 `git status`, 커밋, push 확인 항목을 추가했다.
+- Git 관리 규칙, 커밋 메시지 원칙, 예외 상황, 보류 시 기록 규칙을 추가했다.
+- `active-context.md`에 Git 커밋/push 운영 규칙과 현재 미커밋 상태를 기록했다.
+
+### 현재 상태
+
+프로젝트 운영 규칙에는 작업 완료 후 Git 커밋과 GitHub push가 포함되었다.
+
+### 남은 작업
+
+- 현재 미커밋 변경 사항 커밋 및 GitHub push
+- OpenAI API 연동
+- 추출 자막을 실제 요약 프롬프트에 전달
+- 전체 로컬 실행 검증
+- 배포
+
+### 다음 작업
+
+현재 변경 사항을 의미 있는 커밋 단위로 정리해 GitHub에 push한다.

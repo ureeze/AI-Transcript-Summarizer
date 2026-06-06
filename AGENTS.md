@@ -55,9 +55,14 @@ memory-bank/
 4. 구현 수행
 5. 테스트 수행
 6. 문서 업데이트
-7. 다음 작업 정의
+7. Git 상태 확인
+8. 커밋 생성
+9. GitHub push
+10. 다음 작업 정의
 
 문서 업데이트 없이 작업을 종료해서는 안 된다.
+
+Git 커밋과 GitHub push 없이 작업을 종료해서는 안 된다. 단, 사용자가 명시적으로 커밋 또는 push를 보류하라고 요청한 경우에는 보류 사유와 현재 Git 상태를 `active-context.md`와 최종 응답에 기록한다.
 
 ---
 
@@ -235,7 +240,48 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 - 테스트 수행
 - 빌드 확인
 - 문서 업데이트
+- Git 커밋
+- GitHub push
 - 다음 작업 정의
+
+---
+
+## Git 관리 규칙
+
+작업이 완료되면 반드시 Git 커밋을 생성하고 GitHub 원격 저장소에 push한다.
+
+### 기본 원칙
+
+- 커밋 전 반드시 `git status`로 변경 파일을 확인한다.
+- 커밋에는 현재 작업과 관련된 변경만 포함한다.
+- 불필요한 빌드 산출물, 임시 파일, 로컬 환경 파일은 커밋하지 않는다.
+- 커밋 전 테스트와 빌드 확인을 완료한다.
+- 커밋 후 `git push`로 GitHub 원격 저장소에 반영한다.
+- push 후 `git status --short --branch`로 로컬과 원격 상태를 확인한다.
+
+### 커밋 메시지
+
+- 커밋 메시지는 작업 단위가 드러나도록 짧고 명확하게 작성한다.
+- 예시:
+  - `Implement YouTube transcript extraction service`
+  - `Integrate OpenAI summarize API`
+  - `Add frontend error states`
+  - `Update memory bank workflow`
+
+### 예외 상황
+
+다음 상황에서는 커밋 또는 push를 보류할 수 있다.
+
+- 사용자가 명시적으로 커밋 또는 push 보류를 요청한 경우
+- 테스트 또는 빌드가 실패했고, 사용자가 실패 상태 커밋을 요청하지 않은 경우
+- GitHub 인증, 네트워크, 권한 문제로 push가 불가능한 경우
+- 변경 사항 중 사용자 확인이 필요한 민감 정보 또는 의도 불명 파일이 포함된 경우
+
+보류 시에는 다음을 수행한다.
+
+- `active-context.md`에 보류 사유를 기록한다.
+- `progress.md`에 완료한 작업과 남은 Git 작업을 기록한다.
+- 최종 응답에 커밋/push 미완료 사유와 다음 조치를 명확히 알린다.
 
 ---
 
@@ -264,6 +310,9 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 - [ ] 필요 시 implementation-plan.md 업데이트
 - [ ] 필요 시 task-log/YYYY-MM.md 업데이트
 - [ ] 필요 시 trouble-shooting.md 업데이트
+- [ ] git status 확인
+- [ ] Git 커밋 생성
+- [ ] GitHub push 완료
 - [ ] 다음 작업 정의
 
 위 항목 중 하나라도 완료되지 않았다면 작업을 종료하지 않는다.
@@ -294,6 +343,7 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 - Memory Bank 미갱신
 - 문서화 없는 구조 변경
 - 검증 없는 완료 처리
+- 작업 완료 후 Git 커밋/push 누락
 - 근거 없는 추측 구현
 - 대규모 불필요 리팩토링
 - active-context.md 미갱신 상태로 작업 종료
