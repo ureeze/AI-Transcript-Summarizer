@@ -30,7 +30,10 @@ MVP v1 OpenAI 요약 연동 구현
 - OpenAI 연동은 PRD의 `gpt-4o-mini` 요구사항에 맞춰 Chat Completions API를 사용한다.
 - `OPENAI_API_KEY`는 백엔드 환경변수로만 관리한다.
 - `SummaryService`는 자막 추출 후 `OpenAiSummaryClient`를 호출해 실제 요약 응답을 반환한다.
-- `main` 브랜치에서는 직접 개발하지 않고 `develop` 또는 `feature/*` 브랜치에서 작업한다.
+- `main` 브랜치는 배포 브랜치로 사용한다.
+- `develop` 브랜치는 기본 개발 브랜치로 사용한다.
+- 새로운 작업은 `develop`에서 `feature/*` 브랜치를 생성해 진행한다.
+- `feature/*` 브랜치는 `develop`으로 Pull Request를 생성하고, `develop` 검증 후 `main`으로 병합한다.
 - 현재 작업 브랜치는 `feature/update-git-workflow`이다.
 
 ## 열린 이슈

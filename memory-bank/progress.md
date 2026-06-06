@@ -289,3 +289,28 @@ Git 관리 규칙은 브랜치 기반 작업 흐름을 따르도록 변경되었
 ### 다음 작업
 
 테스트/빌드 확인 후 `feature/update-git-workflow` 브랜치에 한국어 커밋 메시지로 커밋하고 GitHub에 push한다.
+
+## 2026-06-06 11:35
+
+### 완료한 작업
+
+- 요청된 브랜치 정책이 기존 정책과 충돌되는지 검사했다.
+- 기존 정책과 방향은 충돌하지 않지만, 기존 문구가 `develop` 직접 작업도 넓게 허용하는 형태라 새 정책 기준으로 더 명확히 정리했다.
+- `AGENTS.md` 브랜치 정책을 `main` 배포 브랜치, `develop` 기본 개발 브랜치, `feature/*` 작업 브랜치 흐름으로 변경했다.
+- feature 브랜치는 develop으로 Pull Request를 만들고, develop 검증 후 main으로 병합하는 정책을 추가했다.
+- `active-context.md`에 새 브랜치 정책을 반영했다.
+
+### 현재 상태
+
+Git 브랜치 정책은 `feature/* -> develop -> main` 흐름을 기준으로 정리되었다.
+
+### 남은 작업
+
+- 백엔드 테스트 확인
+- 프론트엔드 빌드 확인
+- Git 커밋 및 GitHub push
+- 이후 로컬 환경에서 실제 `OPENAI_API_KEY` 설정 후 전체 흐름 검증
+
+### 다음 작업
+
+테스트/빌드 확인 후 `feature/update-git-workflow` 브랜치에 한국어 커밋 메시지로 커밋하고 GitHub에 push한다.

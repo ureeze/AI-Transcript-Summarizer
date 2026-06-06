@@ -252,8 +252,11 @@ task-log는 의사결정 배경을 기록하는 문서이다.
 
 ### 브랜치 정책
 
-- `main` 브랜치에서는 직접 개발 작업을 수행하지 않는다.
-- 모든 개발 작업은 `develop` 또는 `feature/*` 브랜치에서 수행한다.
+- `main` 브랜치는 배포 브랜치로 사용한다.
+- `develop` 브랜치는 기본 개발 브랜치로 사용한다.
+- 새로운 작업은 `develop`에서 `feature/*` 브랜치를 생성하여 진행한다.
+- `feature/*` 브랜치는 `develop`으로 Pull Request를 생성한다.
+- `develop` 검증 후 `main`으로 병합한다.
 - 작업 시작 전 반드시 현재 브랜치를 확인한다.
 
 ```bash
@@ -262,7 +265,7 @@ git branch --show-current
 
 - 현재 브랜치가 `main`인 경우 코드 수정, 파일 생성, 커밋 작업을 시작하지 않는다.
 - 현재 브랜치가 `main`인 경우 사용자에게 브랜치 생성 또는 전환 여부를 확인한다.
-- 새로운 기능 개발 시 다음 순서를 우선 권장한다.
+- 새로운 작업 시작 시 다음 순서를 우선 권장한다.
 
 ```bash
 git checkout develop
@@ -277,8 +280,9 @@ git checkout -b feature/login
 git checkout -b feature/user-api
 ```
 
-- 모든 커밋은 작업 브랜치(`develop` 또는 `feature/*`)에서 수행한다.
-- `main` 브랜치에는 Pull Request 또는 검증된 머지 작업만 반영한다.
+- 모든 커밋은 작업 브랜치(`feature/*`)에서 수행하는 것을 원칙으로 한다.
+- `develop` 브랜치에는 Pull Request 또는 검증된 머지 작업만 반영한다.
+- `main` 브랜치에는 `develop` 검증 후 Pull Request 또는 검증된 머지 작업만 반영한다.
 
 ### 기본 원칙
 
