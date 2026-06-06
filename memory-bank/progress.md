@@ -262,3 +262,30 @@ Gradle Wrapper를 추가하거나 Gradle 설치 후 백엔드 `gradle test` 또�
 ### 다음 작업
 
 실제 `OPENAI_API_KEY`를 설정하고 백엔드/프론트엔드를 함께 실행해 유튜브 URL 입력부터 요약 결과 표시까지 검증한다.
+
+## 2026-06-06 11:20
+
+### 완료한 작업
+
+- 현재 브랜치가 `main`임을 확인했다.
+- `main`에서 직접 수정하지 않기 위해 사용자 확인 후 `feature/update-git-workflow` 브랜치를 생성했다.
+- `AGENTS.md`의 Git 관리 규칙을 브랜치 정책 중심으로 변경했다.
+- `main` 직접 개발 금지, `develop` 또는 `feature/*` 브랜치 작업 원칙을 추가했다.
+- 작업 시작 전 `git branch --show-current`로 브랜치 확인 규칙을 추가했다.
+- 테스트 성공 후 커밋, push, 동기화 상태 확인을 작업 완료 기준으로 명확히 했다.
+- `active-context.md`에 브랜치 정책 결정과 현재 작업 브랜치를 기록했다.
+
+### 현재 상태
+
+Git 관리 규칙은 브랜치 기반 작업 흐름을 따르도록 변경되었다.
+
+### 남은 작업
+
+- 백엔드 테스트 확인
+- 프론트엔드 빌드 확인
+- Git 커밋 및 GitHub push
+- 이후 로컬 환경에서 실제 `OPENAI_API_KEY` 설정 후 전체 흐름 검증
+
+### 다음 작업
+
+테스트/빌드 확인 후 `feature/update-git-workflow` 브랜치에 한국어 커밋 메시지로 커밋하고 GitHub에 push한다.

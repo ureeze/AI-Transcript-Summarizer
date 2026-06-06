@@ -6,7 +6,7 @@ MVP v1 OpenAI 요약 연동 구현
 
 ## 현재 작업
 
-추출된 유튜브 자막을 OpenAI Chat Completions API로 요약하도록 연동했다.
+`AGENTS.md`의 Git 관리 규칙을 브랜치 정책 중심으로 변경했다.
 
 ## 최근 결정 사항
 
@@ -30,6 +30,8 @@ MVP v1 OpenAI 요약 연동 구현
 - OpenAI 연동은 PRD의 `gpt-4o-mini` 요구사항에 맞춰 Chat Completions API를 사용한다.
 - `OPENAI_API_KEY`는 백엔드 환경변수로만 관리한다.
 - `SummaryService`는 자막 추출 후 `OpenAiSummaryClient`를 호출해 실제 요약 응답을 반환한다.
+- `main` 브랜치에서는 직접 개발하지 않고 `develop` 또는 `feature/*` 브랜치에서 작업한다.
+- 현재 작업 브랜치는 `feature/update-git-workflow`이다.
 
 ## 열린 이슈
 
