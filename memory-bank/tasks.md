@@ -2,8 +2,7 @@
 
 ## Next
 
-- `feature/restructure-memory-bank` 변경사항 커밋 및 GitHub push
-- `feature/restructure-memory-bank`에서 `develop`으로 Pull Request 생성
+- PR #4 `Memory Bank 구조 개편` 검토 및 병합
 - 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - Render 백엔드 배포 설정
@@ -12,7 +11,7 @@
 
 ## In Progress
 
-- Memory Bank 구조 개편 변경사항 커밋 및 PR 생성
+- 없음
 
 ## Blocked
 
@@ -42,3 +41,7 @@
 - Memory Bank 구조 개편 후 백엔드 테스트 통과
 - Memory Bank 구조 개편 후 프론트엔드 빌드 통과
 - Memory Bank 구조 개편 변경사항 리뷰 완료
+- Memory Bank 구조 개편 커밋 및 PR #4 생성
+- `decisions.md` 상태 항목 추가 후 백엔드 테스트 통과
+- `decisions.md` 상태 항목 추가 후 프론트엔드 빌드 통과
+- `decisions.md` 상태 항목 추가 변경사항 리뷰 완료

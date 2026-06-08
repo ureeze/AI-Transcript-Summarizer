@@ -6,7 +6,7 @@ Memory Bank 구조 개편
 
 ## 진행 중 작업
 
-`AGENTS.md`를 새 Memory Bank 구조 기준으로 교체하고, PRD와 Memory Bank 문서를 새 경로와 파일명으로 마이그레이션했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었다.
+`AGENTS.md`의 `decisions.md` 기록 형식에 `상태` 항목과 상태 값 규칙을 추가했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었다. 변경사항은 PR #4에 추가 커밋으로 반영한다.
 
 ## 최근 완료 작업
 
@@ -19,6 +19,10 @@ Memory Bank 구조 개편
 - 백엔드 `.\gradlew.bat test`가 성공했다.
 - 프론트엔드 `npm run build`가 성공했다.
 - 변경사항을 `git diff --cached` 기준으로 리뷰했다.
+- `decisions.md` 기록 형식에 사용할 상태 값은 `채택`, `폐기`, `대체됨`, `보류`로 정했다.
+- 백엔드 `.\gradlew.bat test`가 성공했다.
+- 프론트엔드 `npm run build`가 성공했다.
+- 변경사항을 `git diff` 기준으로 리뷰했다.
 
 ## 열린 이슈
 
@@ -29,6 +33,6 @@ Memory Bank 구조 개편
 
 ## 다음 작업
 
-1. 변경사항을 커밋하고 GitHub에 push한다.
-2. `feature/restructure-memory-bank`에서 `develop`으로 Pull Request를 생성한다.
-3. 이후 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+1. PR #4 `Memory Bank 구조 개편`을 검토하고 필요 시 병합한다.
+2. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+3. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
