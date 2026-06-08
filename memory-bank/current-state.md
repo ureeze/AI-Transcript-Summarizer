@@ -6,7 +6,7 @@ Memory Bank 구조 개편
 
 ## 진행 중 작업
 
-`project-brief.md`, `architecture.md`, `tech-stack.md`의 중복을 줄이고 문서별 책임을 제품 개요, 시스템 구조, 기술 목록으로 분리했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었다.
+`troubleshooting.md` 기록 형식에 날짜와 상태 항목을 추가하고 기존 문제 해결 이력을 새 형식으로 정리했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었고 PR #4에 추가 커밋으로 반영한다.
 
 ## 최근 완료 작업
 
@@ -20,6 +20,12 @@ Memory Bank 구조 개편
 - 프론트엔드 `npm run build`가 성공했다.
 - 변경사항을 `git diff --cached` 기준으로 리뷰했다.
 - `decisions.md` 기록 형식에 사용할 상태 값은 `채택`, `폐기`, `대체됨`, `보류`로 정했다.
+- 백엔드 `.\gradlew.bat test`가 성공했다.
+- 프론트엔드 `npm run build`가 성공했다.
+- 변경사항을 `git diff` 기준으로 리뷰했다.
+- `AGENTS.md`의 `troubleshooting.md` 기록 형식에 날짜와 상태를 추가했다.
+- 기존 `troubleshooting.md` 기록 3건을 날짜와 상태가 포함된 형식으로 정리했다.
+- `decisions.md`에 `ADR-004 troubleshooting.md 날짜와 상태 기록 형식 도입`을 추가했다.
 - 백엔드 `.\gradlew.bat test`가 성공했다.
 - 프론트엔드 `npm run build`가 성공했다.
 - 변경사항을 `git diff` 기준으로 리뷰했다.

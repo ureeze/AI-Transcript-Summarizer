@@ -57,3 +57,9 @@
 - Memory Bank 문서 책임 분리 후 백엔드 테스트 통과
 - Memory Bank 문서 책임 분리 후 프론트엔드 빌드 통과
 - Memory Bank 문서 책임 분리 변경사항 리뷰 완료
+- troubleshooting 기록 형식 날짜/상태 추가
+- 기존 troubleshooting 기록 3건 새 형식으로 정리
+- ADR-004 troubleshooting 날짜와 상태 기록 형식 도입 기록
+- troubleshooting 날짜/상태 형식 변경 후 백엔드 테스트 통과
+- troubleshooting 날짜/상태 형식 변경 후 프론트엔드 빌드 통과
+- troubleshooting 날짜/상태 형식 변경사항 리뷰 완료
