@@ -7,10 +7,10 @@ AI Transcript Summarizer는 사용자가 유튜브 영상 URL을 입력하면 �
 ## 핵심 목표
 
 - 사용자가 유튜브 영상 URL을 입력할 수 있다.
-- 서비스가 유튜브 영상의 공개 자막 또는 자동 자막을 가져올 수 있다.
-- OpenAI API를 사용해 3줄 요약, 핵심 포인트, 키워드를 생성한다.
-- 프론트엔드와 백엔드가 운영 URL에서 동작한다.
-- OpenAI API, Spring Boot, React + Vite 개발 경험을 확보한다.
+- 서비스가 영상의 자막을 기반으로 핵심 내용을 요약할 수 있다.
+- 사용자가 3줄 요약, 핵심 포인트, 키워드를 확인할 수 있다.
+- 운영 URL에서 실제 사용 가능한 MVP를 완성한다.
+- AI 기반 요약 서비스의 MVP 구현 흐름을 학습한다.
 
 ## 주요 사용자
 
@@ -32,10 +32,11 @@ AI Transcript Summarizer는 사용자가 유튜브 영상 URL을 입력하면 �
 
 ### 포함
 
-- React + Vite + TypeScript + Tailwind CSS 프론트엔드
-- Java 21 + Spring Boot 3 백엔드
-- YouTube 비공식 공개 자막 추출
-- OpenAI `gpt-4o-mini` 요약 연동
+- 유튜브 영상 URL 입력
+- 영상 자막 기반 요약
+- 3줄 요약 출력
+- 핵심 포인트 출력
+- 키워드 출력
 
 ### 제외
 

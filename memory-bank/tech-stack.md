@@ -27,8 +27,6 @@
 ## YouTube Transcript
 
 - 비공식 공개 자막 추출 방식
-- YouTube watch page caption track 조회
-- json3 자막 응답 파싱
 
 ## Infrastructure
 

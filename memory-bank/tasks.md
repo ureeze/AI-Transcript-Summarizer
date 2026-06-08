@@ -51,3 +51,9 @@
 - ADR 기록 형식 변경 후 프론트엔드 빌드 통과
 - ADR 기록 형식 변경사항 리뷰 완료
 - ADR 기록 형식 변경사항 PR #4 추가 반영
+- `project-brief.md`, `architecture.md`, `tech-stack.md` 중복 검토
+- Memory Bank 문서 책임 분리 정리
+- ADR-003 Memory Bank 문서 책임 분리 기록
+- Memory Bank 문서 책임 분리 후 백엔드 테스트 통과
+- Memory Bank 문서 책임 분리 후 프론트엔드 빌드 통과
+- Memory Bank 문서 책임 분리 변경사항 리뷰 완료

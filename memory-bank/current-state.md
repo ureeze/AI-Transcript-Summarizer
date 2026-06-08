@@ -6,7 +6,7 @@ Memory Bank 구조 개편
 
 ## 진행 중 작업
 
-`AGENTS.md`의 `decisions.md` 섹션을 ADR 중심 기록 규칙으로 개편했다. `decisions.md`의 최신 운영 결정도 ADR-001, ADR-002 형식으로 정리했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었고 PR #4에 추가 커밋으로 반영한다.
+`project-brief.md`, `architecture.md`, `tech-stack.md`의 중복을 줄이고 문서별 책임을 제품 개요, 시스템 구조, 기술 목록으로 분리했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었다.
 
 ## 최근 완료 작업
 
@@ -26,6 +26,13 @@ Memory Bank 구조 개편
 - `AGENTS.md`의 `decisions.md` 섹션에 ADR 번호, 날짜, 상태 의미, 기록 규칙을 추가했다.
 - `decisions.md`의 Memory Bank 구조 개편 결정을 `ADR-001`로 정리했다.
 - `decisions.md`의 의사결정 기록 형식 변경 결정을 `ADR-002`로 정리했다.
+- 백엔드 `.\gradlew.bat test`가 성공했다.
+- 프론트엔드 `npm run build`가 성공했다.
+- 변경사항을 `git diff` 기준으로 리뷰했다.
+- `project-brief.md`에서 기술 스택 나열을 줄이고 제품 범위 중심으로 정리했다.
+- `architecture.md`에서 구체 기술명 나열을 줄이고 책임 경계와 데이터 흐름 중심으로 정리했다.
+- `tech-stack.md`에서 구현 흐름 설명을 줄이고 기술 목록 중심으로 정리했다.
+- `decisions.md`에 `ADR-003 Memory Bank 문서 책임 분리`를 추가했다.
 - 백엔드 `.\gradlew.bat test`가 성공했다.
 - 프론트엔드 `npm run build`가 성공했다.
 - 변경사항을 `git diff` 기준으로 리뷰했다.
