@@ -45,3 +45,9 @@
 - `decisions.md` 상태 항목 추가 후 백엔드 테스트 통과
 - `decisions.md` 상태 항목 추가 후 프론트엔드 빌드 통과
 - `decisions.md` 상태 항목 추가 변경사항 리뷰 완료
+- `decisions.md`의 Memory Bank 구조 개편 결정을 ADR-001로 정리
+- `decisions.md`의 의사결정 기록 형식 변경 결정을 ADR-002로 정리
+- ADR 기록 형식 변경 후 백엔드 테스트 통과
+- ADR 기록 형식 변경 후 프론트엔드 빌드 통과
+- ADR 기록 형식 변경사항 리뷰 완료
+- ADR 기록 형식 변경사항 PR #4 추가 반영
