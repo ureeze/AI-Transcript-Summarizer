@@ -5,9 +5,10 @@
 ## 구조
 
 ```text
+docs/         PRD 문서
 frontend/     React + Vite + TypeScript + Tailwind CSS
 backend/      Spring Boot 3 + Java 21 + Gradle
-memory-bank/  프로젝트 상태와 의사결정 기록
+memory-bank/  프로젝트 장기 기억과 작업 상태
 ```
 
 ## 로컬 실행
