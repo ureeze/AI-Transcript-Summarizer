@@ -2,7 +2,6 @@
 
 ## Next
 
-- PR #4 `Memory Bank 구조 개편` 검토 및 병합
 - 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - Render 백엔드 배포 설정
@@ -63,3 +62,5 @@
 - troubleshooting 날짜/상태 형식 변경 후 백엔드 테스트 통과
 - troubleshooting 날짜/상태 형식 변경 후 프론트엔드 빌드 통과
 - troubleshooting 날짜/상태 형식 변경사항 리뷰 완료
+- PR #4 `Memory Bank 구조 개편` develop 병합
+- 로컬 `develop`과 `origin/develop` 동기화

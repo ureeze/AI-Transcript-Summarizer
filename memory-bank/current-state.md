@@ -2,11 +2,11 @@
 
 ## 현재 마일스톤
 
-Memory Bank 구조 개편
+OpenAI API 연동 검증
 
 ## 진행 중 작업
 
-`troubleshooting.md` 기록 형식에 날짜와 상태 항목을 추가하고 기존 문제 해결 이력을 새 형식으로 정리했다. 백엔드 테스트, 프론트엔드 빌드, 변경사항 리뷰가 완료되었고 PR #4에 추가 커밋으로 반영한다.
+PR #4 `Memory Bank 구조 개편`이 GitHub의 `develop` 브랜치에 병합되었고, 로컬 `develop`은 `origin/develop`과 동기화되었다. 다음 작업은 실제 `OPENAI_API_KEY`를 설정한 뒤 유튜브 URL 입력부터 AI 요약 결과 출력까지 로컬 전체 흐름을 검증하는 것이다.
 
 ## 최근 완료 작업
 
@@ -42,6 +42,8 @@ Memory Bank 구조 개편
 - 백엔드 `.\gradlew.bat test`가 성공했다.
 - 프론트엔드 `npm run build`가 성공했다.
 - 변경사항을 `git diff` 기준으로 리뷰했다.
+- PR #4 `Memory Bank 구조 개편`이 GitHub의 `develop` 브랜치에 병합되었다.
+- 로컬 `develop`은 `origin/develop`과 동기화되었다.
 
 ## 열린 이슈
 
@@ -52,6 +54,6 @@ Memory Bank 구조 개편
 
 ## 다음 작업
 
-1. PR #4 `Memory Bank 구조 개편`을 검토하고 필요 시 병합한다.
-2. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
-3. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
+1. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+2. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
+3. Render 백엔드 배포 설정을 준비한다.
