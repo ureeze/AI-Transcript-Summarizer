@@ -33,6 +33,47 @@
 - 커밋에는 현재 작업과 관련된 변경만 포함한다.
 - 불필요한 빌드 산출물, 임시 파일, 로컬 환경 파일은 커밋하지 않는다.
 
+## Git Commit Message Convention
+
+커밋 메시지는 Conventional Commits 형식을 사용한다.
+
+기본 형식:
+
+```text
+type: 변경 내용
+```
+
+예시:
+
+```text
+feat: 유튜브 URL 입력 기능 추가
+fix: 자막 추출 실패 처리 수정
+docs: 커밋 메시지 정책 추가
+```
+
+### Type 기준
+
+| Type | 사용 기준 | 예시 |
+| --- | --- | --- |
+| `feat` | API, 화면, 서비스 등 새로운 기능 추가 | `feat: 유튜브 URL 입력 기능 추가` |
+| `fix` | 버그, 기능 오류, 예외 처리 누락 수정 | `fix: 자막 추출 실패 처리 수정` |
+| `refactor` | 기능 변화 없는 코드 구조 개선 | `refactor: SummaryService 책임 분리` |
+| `test` | 테스트 코드 추가 또는 수정 | `test: SummaryService 테스트 추가` |
+| `docs` | README, API 문서, 설계 문서 등 문서 변경 | `docs: README 업데이트` |
+| `chore` | 환경설정, 설정 파일, 기타 관리 작업 | `chore: .gitignore 수정` |
+| `style` | 코드 포맷, import, 공백 등 스타일 변경 | `style: import 정렬` |
+| `build` | 빌드 설정, 의존성 추가/삭제 | `build: Gradle 의존성 추가` |
+| `ci` | CI/CD 워크플로와 배포 스크립트 변경 | `ci: GitHub Actions 배포 추가` |
+
+### 작성 규칙
+
+- type은 소문자로 작성한다.
+- 변경 내용은 한국어로 짧고 명확하게 작성한다.
+- 하나의 커밋에는 하나의 목적만 담는다.
+- 문서만 변경한 경우 `docs`를 사용한다.
+- 기능 변경 없이 구조만 개선한 경우 `refactor`를 사용한다.
+- 코드 동작 변경 없이 포맷만 바꾼 경우 `style`을 사용한다.
+
 ## 코드 리뷰 규칙
 
 - 커밋 전 현재 변경사항을 `git diff` 기준으로 리뷰한다.
