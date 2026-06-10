@@ -2,7 +2,7 @@
 
 ## 현재 마일스톤
 
-OpenAI API 연동 검증
+Memory Bank 운영 규칙 보강
 
 ## 진행 중 작업
 
@@ -52,6 +52,10 @@ OpenAI API 연동 검증
 - PR #5 `docs: 커밋 메시지 정책 추가`가 GitHub의 `develop` 브랜치에 병합되었다.
 - 로컬 `develop`은 `origin/develop`과 동기화되었다.
 - `current-state.md`의 진행 중 작업을 완료 작업과 분리해 정리했다.
+- `AGENTS.md`에 `current-state.md`의 `진행 중 작업` 작성 규칙을 추가했다.
+- `AGENTS.md`에 `tasks.md`의 `Next`, `In Progress`, `Blocked`, `Done` 작성 규칙을 추가했다.
+- `decisions.md`에 `ADR-006 Memory Bank 상태 작성 규칙 보강`을 추가했다.
+- Memory Bank 상태 작성 규칙 변경사항을 `git diff` 기준으로 리뷰했다.
 
 ## 열린 이슈
 
@@ -62,6 +66,6 @@ OpenAI API 연동 검증
 
 ## 다음 작업
 
-1. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
-2. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
-3. Render 백엔드 배포 설정을 준비한다.
+1. Memory Bank 상태 작성 규칙 변경 PR을 검토하고 `develop`에 병합한다.
+2. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+3. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
