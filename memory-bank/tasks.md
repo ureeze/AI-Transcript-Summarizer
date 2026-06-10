@@ -2,7 +2,6 @@
 
 ## Next
 
-- [T-068] Git/PR 및 작업 승인 운영 규칙 변경 PR 검토 및 develop 병합
 - [T-069] 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - [T-070] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - [T-071] Render 백엔드 배포 설정
@@ -100,3 +99,4 @@
 - [T-086] `decisions.md` 상단에 구형 기록 유지 안내 추가 (done: 2026-06-11)
 - [T-087] ADR-011 Memory Bank 규칙 표현 명확화 기록 (done: 2026-06-11)
 - [T-088] Memory Bank 규칙 표현 정리 변경사항 리뷰 완료 (done: 2026-06-11)
+- [T-068] PR #7 `docs: Git PR 운영 규칙 보강` develop 병합 및 로컬 develop 동기화 (done: 2026-06-11)
