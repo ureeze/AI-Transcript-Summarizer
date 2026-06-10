@@ -468,3 +468,34 @@ Git/PR 작업은 `feature/*` 브랜치에서 수행하고 Pull Request를 통해
 - `current-state.md`는 `tasks.md` 작업 ID를 새로 부여하지 않고 참조한다.
 - `tasks.md` 작업 ID는 다른 작업에 다시 부여하지 않는다.
 - ADR 형식 도입 전 구형 의사결정 기록은 기존 형식으로 유지한다.
+
+## ADR-012 PR 병합 상태 기록 커밋 금지 명확화
+
+### 날짜
+
+2026-06-11
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+PR 병합 사실만 기록하기 위한 `develop` 직접 커밋은 만들지 않는다. PR 병합 사실은 GitHub PR 기록과 merge commit을 기준으로 추적하고, 병합 후 Memory Bank 업데이트가 필요하면 다음 작업 브랜치 또는 별도 문서 브랜치에서 처리한다.
+
+### 이유
+
+`develop`은 기본 개발 브랜치이므로 직접 커밋을 최소화하고 PR 기반 이력을 유지해야 한다. PR 병합 여부는 GitHub에 이미 기록되므로, 병합 상태만 남기기 위한 별도 커밋은 이력을 불필요하게 늘리고 브랜치 정책을 흐릴 수 있다.
+
+### 고려한 대안
+
+- PR 병합 후 매번 `develop`에 Memory Bank 상태 기록 커밋을 만든다.
+- PR 병합 기록은 GitHub에만 맡기고 Memory Bank에는 기록하지 않는다.
+- PR 병합 사실은 GitHub 기록을 기준으로 삼고, 필요한 Memory Bank 업데이트는 다음 작업 브랜치 또는 별도 문서 브랜치에서 처리한다.
+
+### 영향 범위
+
+- PR 병합 후 로컬 `develop`은 `origin/develop`과 fast-forward 동기화만 수행한다.
+- 병합 상태 기록만을 위한 `develop` 직접 커밋은 기본적으로 금지한다.
+- Memory Bank 업데이트가 필요하면 feature 브랜치에서 커밋하고 PR을 생성한다.
+- 사용자가 명시적으로 요청한 경우에만 예외를 검토한다.

@@ -35,6 +35,10 @@ OpenAI API 연동 로컬 검증
 - [T-087] ADR-011 Memory Bank 규칙 표현 명확화 기록 (done: 2026-06-11)
 - [T-088] Memory Bank 규칙 표현 정리 변경사항 리뷰 완료 (done: 2026-06-11)
 - [T-068] PR #7 `docs: Git PR 운영 규칙 보강` develop 병합 및 로컬 develop 동기화 (done: 2026-06-11)
+- [T-089] `AGENTS.md` PR 병합 상태 기록 커밋 금지 원칙 추가 (done: 2026-06-11)
+- [T-090] `coding-rules.md` PR 병합 후 Memory Bank 업데이트 처리 기준 보강 (done: 2026-06-11)
+- [T-091] ADR-012 PR 병합 상태 기록 커밋 금지 명확화 기록 (done: 2026-06-11)
+- [T-092] PR 병합 기록 커밋 정책 변경사항 리뷰 완료 (done: 2026-06-11)
 
 ## 열린 이슈
 
