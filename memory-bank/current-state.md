@@ -2,11 +2,11 @@
 
 ## 현재 마일스톤
 
-개발 규칙 정비
+OpenAI API 연동 검증
 
 ## 진행 중 작업
 
-`coding-rules.md`에 Conventional Commits 기반 커밋 메시지 정책을 추가하고, Memory Bank 문서에 맞게 타입별 기준을 표 중심으로 압축 정리했다. `decisions.md`에는 ADR-005로 정책 도입 결정을 기록했다.
+PR #5 `docs: 커밋 메시지 정책 추가`가 GitHub의 `develop` 브랜치에 병합되었고, 로컬 `develop`은 `origin/develop`과 동기화되었다. 다음 작업은 실제 `OPENAI_API_KEY`를 설정한 뒤 유튜브 URL 입력부터 AI 요약 결과 출력까지 로컬 전체 흐름을 검증하는 것이다.
 
 ## 최근 완료 작업
 
@@ -49,6 +49,8 @@
 - 커밋 메시지 정책 변경사항을 `git diff` 기준으로 리뷰했다.
 - `coding-rules.md`의 커밋 메시지 정책을 표 중심의 압축 형식으로 정리했다.
 - 커밋 메시지 정책 압축 변경사항을 `git diff` 기준으로 리뷰했다.
+- PR #5 `docs: 커밋 메시지 정책 추가`가 GitHub의 `develop` 브랜치에 병합되었다.
+- 로컬 `develop`은 `origin/develop`과 동기화되었다.
 
 ## 열린 이슈
 
@@ -59,6 +61,6 @@
 
 ## 다음 작업
 
-1. 커밋 메시지 정책 변경 PR을 검토하고 `develop`에 병합한다.
-2. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
-3. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
+1. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+2. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.
+3. Render 백엔드 배포 설정을 준비한다.

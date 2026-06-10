@@ -2,7 +2,6 @@
 
 ## Next
 
-- 커밋 메시지 정책 변경 PR 검토 및 develop 병합
 - 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - Render 백엔드 배포 설정
@@ -70,3 +69,5 @@
 - 커밋 메시지 정책 변경사항 리뷰 완료
 - `coding-rules.md` 커밋 메시지 정책 압축 정리
 - 커밋 메시지 정책 압축 변경사항 리뷰 완료
+- PR #5 `docs: 커밋 메시지 정책 추가` develop 병합
+- 로컬 `develop`과 `origin/develop` 동기화
