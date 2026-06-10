@@ -68,3 +68,5 @@
 - `coding-rules.md` 커밋 메시지 컨벤션 추가
 - ADR-005 Conventional Commits 기반 커밋 메시지 정책 도입 기록
 - 커밋 메시지 정책 변경사항 리뷰 완료
+- `coding-rules.md` 커밋 메시지 정책 압축 정리
+- 커밋 메시지 정책 압축 변경사항 리뷰 완료

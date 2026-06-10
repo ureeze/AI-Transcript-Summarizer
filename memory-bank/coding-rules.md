@@ -40,199 +40,39 @@
 기본 형식:
 
 ```text
-타입: 변경 내용
+type: 변경 내용
 ```
 
 예시:
 
 ```text
-feat: 회원가입 API 추가
-fix: 로그인 오류 수정
-refactor: UserService 리팩토링
+feat: 유튜브 URL 입력 기능 추가
+fix: 자막 추출 실패 처리 수정
+docs: 커밋 메시지 정책 추가
 ```
 
-### Commit Type 가이드
+### Type 기준
 
-#### feat
+| Type | 사용 기준 | 예시 |
+| --- | --- | --- |
+| `feat` | API, 화면, 서비스 등 새로운 기능 추가 | `feat: 유튜브 URL 입력 기능 추가` |
+| `fix` | 버그, 기능 오류, 예외 처리 누락 수정 | `fix: 자막 추출 실패 처리 수정` |
+| `refactor` | 기능 변화 없는 코드 구조 개선 | `refactor: SummaryService 책임 분리` |
+| `test` | 테스트 코드 추가 또는 수정 | `test: SummaryService 테스트 추가` |
+| `docs` | README, API 문서, 설계 문서 등 문서 변경 | `docs: README 업데이트` |
+| `chore` | 환경설정, 설정 파일, 기타 관리 작업 | `chore: .gitignore 수정` |
+| `style` | 코드 포맷, import, 공백 등 스타일 변경 | `style: import 정렬` |
+| `build` | 빌드 설정, 의존성 추가/삭제 | `build: Gradle 의존성 추가` |
+| `ci` | CI/CD 워크플로와 배포 스크립트 변경 | `ci: GitHub Actions 배포 추가` |
 
-새로운 기능 추가
+### 작성 규칙
 
-예시:
-
-```text
-feat: 회원가입 API 추가
-feat: JWT 인증 기능 구현
-feat: 영화 예매 기능 추가
-```
-
-사용 기준:
-
-- 새로운 API 추가
-- 새로운 기능 구현
-- 새로운 화면 추가
-- 새로운 서비스 추가
-
-#### fix
-
-버그 수정
-
-예시:
-
-```text
-fix: 로그인 시 NullPointerException 수정
-fix: 좌석 중복 예약 오류 수정
-fix: 비밀번호 검증 로직 수정
-```
-
-사용 기준:
-
-- 운영 버그 수정
-- 기능 오류 수정
-- 예외 처리 누락 수정
-
-#### refactor
-
-기능 변화 없이 코드 구조 개선
-
-예시:
-
-```text
-refactor: UserService 책임 분리
-refactor: Reservation 로직 메서드 추출
-refactor: 중복 코드 제거
-```
-
-사용 기준:
-
-- 기능 추가 아님
-- 버그 수정 아님
-- 구조 개선
-
-예시:
-
-```java
-if (user != null) {
-    ...
-}
-```
-
-```java
-validateUser(user);
-```
-
-#### test
-
-테스트 코드 추가 및 수정
-
-예시:
-
-```text
-test: UserService 단위 테스트 추가
-test: ReservationService 테스트 보완
-test: 통합 테스트 추가
-```
-
-사용 기준:
-
-- JUnit 테스트 추가
-- MockMvc 테스트 추가
-- Testcontainers 테스트 추가
-
-#### docs
-
-문서 변경
-
-예시:
-
-```text
-docs: README 업데이트
-docs: API 명세 추가
-docs: ERD 문서 수정
-```
-
-사용 기준:
-
-- README 수정
-- API 문서 수정
-- 설계 문서 수정
-
-#### chore
-
-설정 및 기타 작업
-
-예시:
-
-```text
-chore: application.yml 정리
-chore: gradle 버전 업데이트
-chore: .gitignore 수정
-```
-
-사용 기준:
-
-- 환경설정 변경
-- 설정 파일 수정
-- 라이브러리 버전 변경
-
-#### style
-
-코드 스타일 변경
-
-예시:
-
-```text
-style: 코드 포맷팅 적용
-style: import 정렬
-style: 공백 정리
-```
-
-사용 기준:
-
-- IntelliJ 자동 포맷
-- import 정리
-- 들여쓰기 수정
-
-주의:
-
-- 기능 변경 아님
-- 로직 변경 아님
-
-#### build
-
-빌드 관련 변경
-
-예시:
-
-```text
-build: Gradle 의존성 추가
-build: Spring AI 라이브러리 추가
-build: QueryDSL 설정 추가
-```
-
-사용 기준:
-
-- Gradle 설정 변경
-- Maven 설정 변경
-- 라이브러리 추가/삭제
-
-#### ci
-
-CI/CD 관련 변경
-
-예시:
-
-```text
-ci: GitHub Actions 배포 추가
-ci: Jenkins Pipeline 수정
-ci: Docker Build Workflow 추가
-```
-
-사용 기준:
-
-- GitHub Actions
-- Jenkins
-- GitLab CI
-- 배포 스크립트
+- type은 소문자로 작성한다.
+- 변경 내용은 한국어로 짧고 명확하게 작성한다.
+- 하나의 커밋에는 하나의 목적만 담는다.
+- 문서만 변경한 경우 `docs`를 사용한다.
+- 기능 변경 없이 구조만 개선한 경우 `refactor`를 사용한다.
+- 코드 동작 변경 없이 포맷만 바꾼 경우 `style`을 사용한다.
 
 ## 코드 리뷰 규칙
 

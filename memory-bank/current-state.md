@@ -6,7 +6,7 @@
 
 ## 진행 중 작업
 
-`coding-rules.md`에 Conventional Commits 기반 커밋 메시지 정책을 추가하고, `decisions.md`에 ADR-005로 정책 도입 결정을 기록했다. 변경사항은 `git diff` 기준으로 리뷰했다.
+`coding-rules.md`에 Conventional Commits 기반 커밋 메시지 정책을 추가하고, Memory Bank 문서에 맞게 타입별 기준을 표 중심으로 압축 정리했다. `decisions.md`에는 ADR-005로 정책 도입 결정을 기록했다.
 
 ## 최근 완료 작업
 
@@ -47,6 +47,8 @@
 - `coding-rules.md`에 커밋 메시지 기본 형식과 타입별 사용 기준을 추가했다.
 - `decisions.md`에 `ADR-005 Conventional Commits 기반 커밋 메시지 정책 도입`을 추가했다.
 - 커밋 메시지 정책 변경사항을 `git diff` 기준으로 리뷰했다.
+- `coding-rules.md`의 커밋 메시지 정책을 표 중심의 압축 형식으로 정리했다.
+- 커밋 메시지 정책 압축 변경사항을 `git diff` 기준으로 리뷰했다.
 
 ## 열린 이슈
 
