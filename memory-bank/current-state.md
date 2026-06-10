@@ -2,7 +2,7 @@
 
 ## 현재 마일스톤
 
-Memory Bank 운영 규칙 보강
+Git/PR 운영 규칙 보강
 
 ## 진행 중 작업
 
@@ -56,6 +56,12 @@ Memory Bank 운영 규칙 보강
 - `AGENTS.md`에 `tasks.md`의 `Next`, `In Progress`, `Blocked`, `Done` 작성 규칙을 추가했다.
 - `decisions.md`에 `ADR-006 Memory Bank 상태 작성 규칙 보강`을 추가했다.
 - Memory Bank 상태 작성 규칙 변경사항을 `git diff` 기준으로 리뷰했다.
+- PR #6 `docs: Memory Bank 상태 작성 규칙 보강`이 GitHub의 `develop` 브랜치에 병합되었다.
+- 로컬 `develop`은 `origin/develop`과 동기화되었다.
+- `AGENTS.md`에 Git/PR 작업 원칙을 짧게 추가했다.
+- `coding-rules.md`의 Git 정책을 브랜치, PR, 커밋 전 확인, 예외 정책으로 보강했다.
+- `decisions.md`에 `ADR-007 실무형 Git/PR 운영 흐름 도입`을 추가했다.
+- Git/PR 운영 규칙 변경사항을 `git diff` 기준으로 리뷰했다.
 
 ## 열린 이슈
 
@@ -66,6 +72,6 @@ Memory Bank 운영 규칙 보강
 
 ## 다음 작업
 
-1. Memory Bank 상태 작성 규칙 변경 PR을 검토하고 `develop`에 병합한다.
+1. Git/PR 운영 규칙 변경 PR을 검토하고 `develop`에 병합한다.
 2. 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
 3. 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선한다.

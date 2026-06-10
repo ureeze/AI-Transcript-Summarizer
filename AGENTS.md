@@ -346,6 +346,16 @@ Done
 
 ---
 
+# Git/PR 작업 원칙
+
+* Git과 PR 작업은 `memory-bank/coding-rules.md`의 Git 정책을 따른다.
+* 새 작업은 `develop`에서 `feature/*` 브랜치를 생성해 진행한다.
+* 작업 완료 후 테스트/빌드 또는 문서 리뷰, Memory Bank 업데이트, 커밋, push, PR 생성을 수행한다.
+* `develop`과 `main`에는 직접 커밋하지 않는다.
+* 예외가 필요한 경우 사용자 확인을 받고, 보류 또는 예외 사유를 Memory Bank와 최종 응답에 기록한다.
+
+---
+
 # 개발 원칙
 
 ## 작업 전

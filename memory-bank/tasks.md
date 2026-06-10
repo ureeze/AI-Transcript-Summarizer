@@ -2,7 +2,7 @@
 
 ## Next
 
-- Memory Bank 상태 작성 규칙 변경 PR 검토 및 develop 병합
+- Git/PR 운영 규칙 변경 PR 검토 및 develop 병합
 - 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - Render 백엔드 배포 설정
@@ -76,3 +76,9 @@
 - `AGENTS.md` tasks 작성 규칙 보강
 - ADR-006 Memory Bank 상태 작성 규칙 보강 기록
 - Memory Bank 상태 작성 규칙 변경사항 리뷰 완료
+- PR #6 `docs: Memory Bank 상태 작성 규칙 보강` develop 병합
+- 로컬 `develop`과 `origin/develop` 동기화
+- `AGENTS.md` Git/PR 작업 원칙 추가
+- `coding-rules.md` Git 정책 보강
+- ADR-007 실무형 Git/PR 운영 흐름 도입 기록
+- Git/PR 운영 규칙 변경사항 리뷰 완료
