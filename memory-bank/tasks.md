@@ -2,12 +2,12 @@
 
 ## Next
 
-- Git/PR 운영 규칙 변경 PR 검토 및 develop 병합
-- 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
-- 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
-- Render 백엔드 배포 설정
-- Vercel 프론트엔드 배포 설정
-- 배포 준비 완료 후 PR #1(`develop` -> `main`) 검토 및 병합
+- [T-068] Git/PR 운영 규칙 변경 PR 검토 및 develop 병합
+- [T-069] 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
+- [T-070] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
+- [T-071] Render 백엔드 배포 설정
+- [T-072] Vercel 프론트엔드 배포 설정
+- [T-073] 배포 준비 완료 후 PR #1(`develop` -> `main`) 검토 및 병합
 
 ## In Progress
 
@@ -15,70 +15,75 @@
 
 ## Blocked
 
-- 실제 OpenAI API 호출 검증은 `OPENAI_API_KEY` 설정 전까지 대기
-- 배포 검증은 Render/Vercel 환경 설정 전까지 대기
+- [T-074] 실제 OpenAI API 호출 검증은 `OPENAI_API_KEY` 설정 전까지 대기
+- [T-075] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
 
 ## Done
 
-- 초기 PRD 작성
-- 초기 Memory Bank 구성
-- React + Vite + TypeScript + Tailwind CSS 프론트엔드 구성
-- Spring Initializr 기반 Gradle Spring Boot 백엔드 구성
-- Gradle Wrapper 추가
-- MVP 입력을 YouTube URL 기반으로 변경
-- 프론트엔드 URL 입력 UI 구현
-- 백엔드 URL 검증 구현
-- YouTube 비공식 공개 자막 추출 구현
-- OpenAI 요약 API 연동 구현
-- 백엔드 테스트 추가
-- 프론트엔드 빌드 검증
-- Git 브랜치 정책 정리
-- AGENTS 작업 리뷰와 PR 정책 추가
-- PR #2 develop 병합
-- PR #3 develop 병합
-- PRD `docs/prd.md` 이동
-- Memory Bank 역할별 8개 문서 구조 생성
-- Memory Bank 구조 개편 후 백엔드 테스트 통과
-- Memory Bank 구조 개편 후 프론트엔드 빌드 통과
-- Memory Bank 구조 개편 변경사항 리뷰 완료
-- Memory Bank 구조 개편 커밋 및 PR #4 생성
-- `decisions.md` 상태 항목 추가 후 백엔드 테스트 통과
-- `decisions.md` 상태 항목 추가 후 프론트엔드 빌드 통과
-- `decisions.md` 상태 항목 추가 변경사항 리뷰 완료
-- `decisions.md`의 Memory Bank 구조 개편 결정을 ADR-001로 정리
-- `decisions.md`의 의사결정 기록 형식 변경 결정을 ADR-002로 정리
-- ADR 기록 형식 변경 후 백엔드 테스트 통과
-- ADR 기록 형식 변경 후 프론트엔드 빌드 통과
-- ADR 기록 형식 변경사항 리뷰 완료
-- ADR 기록 형식 변경사항 PR #4 추가 반영
-- `project-brief.md`, `architecture.md`, `tech-stack.md` 중복 검토
-- Memory Bank 문서 책임 분리 정리
-- ADR-003 Memory Bank 문서 책임 분리 기록
-- Memory Bank 문서 책임 분리 후 백엔드 테스트 통과
-- Memory Bank 문서 책임 분리 후 프론트엔드 빌드 통과
-- Memory Bank 문서 책임 분리 변경사항 리뷰 완료
-- troubleshooting 기록 형식 날짜/상태 추가
-- 기존 troubleshooting 기록 3건 새 형식으로 정리
-- ADR-004 troubleshooting 날짜와 상태 기록 형식 도입 기록
-- troubleshooting 날짜/상태 형식 변경 후 백엔드 테스트 통과
-- troubleshooting 날짜/상태 형식 변경 후 프론트엔드 빌드 통과
-- troubleshooting 날짜/상태 형식 변경사항 리뷰 완료
-- PR #4 `Memory Bank 구조 개편` develop 병합
-- 로컬 `develop`과 `origin/develop` 동기화
-- `coding-rules.md` 커밋 메시지 컨벤션 추가
-- ADR-005 Conventional Commits 기반 커밋 메시지 정책 도입 기록
-- 커밋 메시지 정책 변경사항 리뷰 완료
-- `coding-rules.md` 커밋 메시지 정책 압축 정리
-- 커밋 메시지 정책 압축 변경사항 리뷰 완료
-- PR #5 `docs: 커밋 메시지 정책 추가` develop 병합
-- 로컬 `develop`과 `origin/develop` 동기화
-- `AGENTS.md` current-state 작성 규칙 보강
-- `AGENTS.md` tasks 작성 규칙 보강
-- ADR-006 Memory Bank 상태 작성 규칙 보강 기록
-- Memory Bank 상태 작성 규칙 변경사항 리뷰 완료
-- PR #6 `docs: Memory Bank 상태 작성 규칙 보강` develop 병합
-- 로컬 `develop`과 `origin/develop` 동기화
-- `AGENTS.md` Git/PR 작업 원칙 추가
-- `coding-rules.md` Git 정책 보강
-- ADR-007 실무형 Git/PR 운영 흐름 도입 기록
-- Git/PR 운영 규칙 변경사항 리뷰 완료
+- [T-001] 초기 PRD 작성 (done: 2026-06-05)
+- [T-002] 초기 Memory Bank 구성 (done: 2026-06-05)
+- [T-003] React + Vite + TypeScript + Tailwind CSS 프론트엔드 구성 (done: 2026-06-05)
+- [T-004] Spring Initializr 기반 Gradle Spring Boot 백엔드 구성 (done: 2026-06-05)
+- [T-005] Gradle Wrapper 추가 (done: 2026-06-05)
+- [T-006] MVP 입력을 YouTube URL 기반으로 변경 (done: 2026-06-05)
+- [T-007] 프론트엔드 URL 입력 UI 구현 (done: 2026-06-05)
+- [T-008] 백엔드 URL 검증 구현 (done: 2026-06-05)
+- [T-009] YouTube 비공식 공개 자막 추출 구현 (done: 2026-06-06)
+- [T-010] OpenAI 요약 API 연동 구현 (done: 2026-06-06)
+- [T-011] 백엔드 테스트 추가 (done: 2026-06-06)
+- [T-012] 프론트엔드 빌드 검증 (done: 2026-06-06)
+- [T-013] Git 브랜치 정책 정리 (done: 2026-06-06)
+- [T-014] AGENTS 작업 리뷰와 PR 정책 추가 (done: 2026-06-06)
+- [T-015] PR #2 develop 병합 (done: 2026-06-07)
+- [T-016] PR #3 develop 병합 (done: 2026-06-07)
+- [T-017] PRD `docs/prd.md` 이동 (done: 2026-06-07)
+- [T-018] Memory Bank 역할별 8개 문서 구조 생성 (done: 2026-06-07)
+- [T-019] Memory Bank 구조 개편 후 백엔드 테스트 통과 (done: 2026-06-07)
+- [T-020] Memory Bank 구조 개편 후 프론트엔드 빌드 통과 (done: 2026-06-07)
+- [T-021] Memory Bank 구조 개편 변경사항 리뷰 완료 (done: 2026-06-07)
+- [T-022] Memory Bank 구조 개편 커밋 및 PR #4 생성 (done: 2026-06-07)
+- [T-023] `decisions.md` 상태 항목 추가 후 백엔드 테스트 통과 (done: 2026-06-08)
+- [T-024] `decisions.md` 상태 항목 추가 후 프론트엔드 빌드 통과 (done: 2026-06-08)
+- [T-025] `decisions.md` 상태 항목 추가 변경사항 리뷰 완료 (done: 2026-06-08)
+- [T-026] `decisions.md`의 Memory Bank 구조 개편 결정을 ADR-001로 정리 (done: 2026-06-08)
+- [T-027] `decisions.md`의 의사결정 기록 형식 변경 결정을 ADR-002로 정리 (done: 2026-06-08)
+- [T-028] ADR 기록 형식 변경 후 백엔드 테스트 통과 (done: 2026-06-08)
+- [T-029] ADR 기록 형식 변경 후 프론트엔드 빌드 통과 (done: 2026-06-08)
+- [T-030] ADR 기록 형식 변경사항 리뷰 완료 (done: 2026-06-08)
+- [T-031] ADR 기록 형식 변경사항 PR #4 추가 반영 (done: 2026-06-08)
+- [T-032] `project-brief.md`, `architecture.md`, `tech-stack.md` 중복 검토 (done: 2026-06-09)
+- [T-033] Memory Bank 문서 책임 분리 정리 (done: 2026-06-09)
+- [T-034] ADR-003 Memory Bank 문서 책임 분리 기록 (done: 2026-06-09)
+- [T-035] Memory Bank 문서 책임 분리 후 백엔드 테스트 통과 (done: 2026-06-09)
+- [T-036] Memory Bank 문서 책임 분리 후 프론트엔드 빌드 통과 (done: 2026-06-09)
+- [T-037] Memory Bank 문서 책임 분리 변경사항 리뷰 완료 (done: 2026-06-09)
+- [T-038] troubleshooting 기록 형식 날짜/상태 추가 (done: 2026-06-09)
+- [T-039] 기존 troubleshooting 기록 3건 새 형식으로 정리 (done: 2026-06-09)
+- [T-040] ADR-004 troubleshooting 날짜와 상태 기록 형식 도입 기록 (done: 2026-06-09)
+- [T-041] troubleshooting 날짜/상태 형식 변경 후 백엔드 테스트 통과 (done: 2026-06-09)
+- [T-042] troubleshooting 날짜/상태 형식 변경 후 프론트엔드 빌드 통과 (done: 2026-06-09)
+- [T-043] troubleshooting 날짜/상태 형식 변경사항 리뷰 완료 (done: 2026-06-09)
+- [T-044] PR #4 `Memory Bank 구조 개편` develop 병합 (done: 2026-06-09)
+- [T-045] 로컬 `develop`과 `origin/develop` 동기화 (done: 2026-06-09)
+- [T-046] `coding-rules.md` 커밋 메시지 컨벤션 추가 (done: 2026-06-10)
+- [T-047] ADR-005 Conventional Commits 기반 커밋 메시지 정책 도입 기록 (done: 2026-06-10)
+- [T-048] 커밋 메시지 정책 변경사항 리뷰 완료 (done: 2026-06-10)
+- [T-049] `coding-rules.md` 커밋 메시지 정책 압축 정리 (done: 2026-06-10)
+- [T-050] 커밋 메시지 정책 압축 변경사항 리뷰 완료 (done: 2026-06-10)
+- [T-051] PR #5 `docs: 커밋 메시지 정책 추가` develop 병합 (done: 2026-06-10)
+- [T-052] 로컬 `develop`과 `origin/develop` 동기화 (done: 2026-06-10)
+- [T-053] `AGENTS.md` current-state 작성 규칙 보강 (done: 2026-06-10)
+- [T-054] `AGENTS.md` tasks 작성 규칙 보강 (done: 2026-06-10)
+- [T-055] ADR-006 Memory Bank 상태 작성 규칙 보강 기록 (done: 2026-06-10)
+- [T-056] Memory Bank 상태 작성 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
+- [T-057] PR #6 `docs: Memory Bank 상태 작성 규칙 보강` develop 병합 (done: 2026-06-10)
+- [T-058] 로컬 `develop`과 `origin/develop` 동기화 (done: 2026-06-10)
+- [T-059] `AGENTS.md` Git/PR 작업 원칙 추가 (done: 2026-06-10)
+- [T-060] `coding-rules.md` Git 정책 보강 (done: 2026-06-10)
+- [T-061] ADR-007 실무형 Git/PR 운영 흐름 도입 기록 (done: 2026-06-10)
+- [T-062] Git/PR 운영 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
+- [T-063] `tasks.md` 작업 ID 규칙 추가 (done: 2026-06-10)
+- [T-064] `tasks.md` Done 완료일 규칙 추가 (done: 2026-06-10)
+- [T-065] 기존 `tasks.md` 항목을 ID 기반 형식으로 정리 (done: 2026-06-10)
+- [T-066] ADR-008 tasks.md 작업 ID와 Done 완료일 규칙 도입 기록 (done: 2026-06-10)
+- [T-067] tasks.md ID/완료일 규칙 변경사항 리뷰 완료 (done: 2026-06-10)

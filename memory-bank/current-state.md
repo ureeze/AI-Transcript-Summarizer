@@ -62,6 +62,11 @@ Git/PR 운영 규칙 보강
 - `coding-rules.md`의 Git 정책을 브랜치, PR, 커밋 전 확인, 예외 정책으로 보강했다.
 - `decisions.md`에 `ADR-007 실무형 Git/PR 운영 흐름 도입`을 추가했다.
 - Git/PR 운영 규칙 변경사항을 `git diff` 기준으로 리뷰했다.
+- `AGENTS.md`에 `tasks.md` 작업 ID와 Done 완료일 작성 규칙을 추가했다.
+- `tasks.md`의 기존 작업 항목을 ID 기반 형식으로 정리했다.
+- `tasks.md`의 Done 항목에 완료일을 추가했다.
+- `decisions.md`에 `ADR-008 tasks.md 작업 ID와 Done 완료일 규칙 도입`을 추가했다.
+- tasks.md ID/완료일 규칙 변경사항을 `git diff` 기준으로 리뷰했다.
 
 ## 열린 이슈
 
