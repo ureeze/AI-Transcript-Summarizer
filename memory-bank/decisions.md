@@ -404,3 +404,34 @@ Git/PR 작업은 `feature/*` 브랜치에서 수행하고 Pull Request를 통해
 - 단순 질문 답변, 설명, 현황 조회, 명령어 안내는 승인 절차 없이 처리할 수 있다.
 - 실행계획 승인 전에는 파일을 수정하지 않는다.
 - 사용자가 수정 요청을 하면 실행계획을 다시 작성해 제시한다.
+
+## ADR-010 current-state.md 작업 ID와 완료일 규칙 도입
+
+### 날짜
+
+2026-06-10
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+`current-state.md`의 작업 항목은 가능한 경우 `tasks.md`의 `T-xxx` 작업 ID를 재사용하고, `최근 완료 작업` 항목은 완료일을 `done: YYYY-MM-DD` 형식으로 기록한다.
+
+### 이유
+
+`current-state.md`와 `tasks.md`가 서로 다른 ID 체계를 가지면 같은 작업을 추적하기 어렵다. `tasks.md`의 작업 ID를 재사용하면 현재 상태 요약과 전체 작업 이력을 연결할 수 있고, 완료일을 함께 기록하면 최근 작업 흐름을 더 정확히 복구할 수 있다.
+
+### 고려한 대안
+
+- `current-state.md`에는 ID를 기록하지 않는다.
+- `current-state.md` 전용 `CS-xxx` ID를 사용한다.
+- `tasks.md`의 `T-xxx` ID를 재사용한다.
+
+### 영향 범위
+
+- `current-state.md`의 `진행 중 작업`, `최근 완료 작업`, `다음 작업`은 가능한 경우 `tasks.md`의 작업 ID를 참조한다.
+- `최근 완료 작업`은 완료일을 포함한다.
+- 전체 완료 이력은 `tasks.md`가 관리하고, `current-state.md`는 최근 흐름 요약만 유지한다.
+- `tasks.md`에 없는 완료 기록은 먼저 `tasks.md`에 작업 ID를 추가한 뒤 `current-state.md`에서 참조한다.
