@@ -2,10 +2,10 @@
 
 ## Next
 
-- [T-070] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
-- [T-071] Render 백엔드 배포 설정
-- [T-072] Vercel 프론트엔드 배포 설정
-- [T-073] 배포 준비 완료 후 PR #1(`develop` -> `main`) 검토 및 병합
+- [T-070] [ATS-3] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
+- [T-071] [ATS-4] Render 백엔드 배포 설정
+- [T-072] [ATS-5] Vercel 프론트엔드 배포 설정
+- [T-073] [ATS-6] 배포 준비 완료 후 PR #1(`develop` -> `main`) 검토 및 병합
 
 ## In Progress
 
@@ -13,8 +13,8 @@
 
 ## Blocked
 
-- [T-069] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
-- [T-075] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
+- [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
+- [T-075] [ATS-4/ATS-5] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
 
 ## Done
 
@@ -103,7 +103,11 @@
 - [T-090] `coding-rules.md` PR 병합 후 Memory Bank 업데이트 처리 기준 보강 (done: 2026-06-11)
 - [T-091] ADR-012 PR 병합 상태 기록 커밋 금지 명확화 기록 (done: 2026-06-11)
 - [T-092] PR 병합 기록 커밋 정책 변경사항 리뷰 완료 (done: 2026-06-11)
-- [T-074] 실제 `OPENAI_API_KEY` 설정 후 OpenAI API 호출 검증 대기 해소 (done: 2026-06-13)
-- [T-097] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
-- [T-098] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
-- [T-099] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
+- [T-093] [ATS-7] Jira 에픽 `ATS-1`과 남은 작업 `ATS-2`~`ATS-6` 매핑 반영 (done: 2026-06-13)
+- [T-094] [ATS-7] `coding-rules.md` Jira 이슈 키 기반 브랜치/커밋/PR 규칙 추가 (done: 2026-06-13)
+- [T-095] [ATS-7] ADR-013 Jira 이슈 키 기반 작업 추적 도입 기록 (done: 2026-06-13)
+- [T-096] [ATS-7] Jira 이슈 키 작업 흐름 변경사항 리뷰 완료 (done: 2026-06-13)
+- [T-074] [ATS-2] 실제 `OPENAI_API_KEY` 설정 후 OpenAI API 호출 검증 대기 해소 (done: 2026-06-13)
+- [T-097] [ATS-2] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
+- [T-098] [ATS-2] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
+- [T-099] [ATS-2] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
