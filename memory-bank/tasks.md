@@ -9,11 +9,11 @@
 
 ## In Progress
 
-- [T-069] [ATS-2] 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
+- 없음
 
 ## Blocked
 
-- [T-074] [ATS-2] 실제 OpenAI API 호출 검증은 `OPENAI_API_KEY` 설정 전까지 대기
+- [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
 - [T-075] [ATS-4/ATS-5] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
 
 ## Done
@@ -107,3 +107,7 @@
 - [T-094] [ATS-7] `coding-rules.md` Jira 이슈 키 기반 브랜치/커밋/PR 규칙 추가 (done: 2026-06-13)
 - [T-095] [ATS-7] ADR-013 Jira 이슈 키 기반 작업 추적 도입 기록 (done: 2026-06-13)
 - [T-096] [ATS-7] Jira 이슈 키 작업 흐름 변경사항 리뷰 완료 (done: 2026-06-13)
+- [T-074] [ATS-2] 실제 `OPENAI_API_KEY` 설정 후 OpenAI API 호출 검증 대기 해소 (done: 2026-06-13)
+- [T-097] [ATS-2] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
+- [T-098] [ATS-2] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
+- [T-099] [ATS-2] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)

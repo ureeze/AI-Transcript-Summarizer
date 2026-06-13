@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -38,6 +39,7 @@ public class OpenAiSummaryClient {
     private final HttpClient httpClient;
     private final ObjectMapper objectMapper;
 
+    @Autowired
     public OpenAiSummaryClient(OpenAiProperties properties, ObjectMapper objectMapper) {
         this(
                 properties,

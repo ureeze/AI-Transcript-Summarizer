@@ -6,34 +6,10 @@
 
 ## 진행 중 작업
 
-- [T-069] [ATS-2] 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름을 검증한다.
+없음
 
 ## 최근 완료 작업
 
-- [T-057] PR #6 `docs: Memory Bank 상태 작성 규칙 보강` develop 병합 (done: 2026-06-10)
-- [T-058] 로컬 `develop`과 `origin/develop` 동기화 (done: 2026-06-10)
-- [T-059] `AGENTS.md` Git/PR 작업 원칙 추가 (done: 2026-06-10)
-- [T-060] `coding-rules.md` Git 정책 보강 (done: 2026-06-10)
-- [T-061] ADR-007 실무형 Git/PR 운영 흐름 도입 기록 (done: 2026-06-10)
-- [T-062] Git/PR 운영 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
-- [T-063] `tasks.md` 작업 ID 규칙 추가 (done: 2026-06-10)
-- [T-064] `tasks.md` Done 완료일 규칙 추가 (done: 2026-06-10)
-- [T-065] 기존 `tasks.md` 항목을 ID 기반 형식으로 정리 (done: 2026-06-10)
-- [T-066] ADR-008 tasks.md 작업 ID와 Done 완료일 규칙 도입 기록 (done: 2026-06-10)
-- [T-067] tasks.md ID/완료일 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
-- [T-076] `AGENTS.md` 작업 승인 규칙 추가 (done: 2026-06-10)
-- [T-077] 작업 절차에 실행계획 작성과 사용자 승인 확인 단계 추가 (done: 2026-06-10)
-- [T-078] ADR-009 작업 실행 전 사용자 승인 절차 도입 기록 (done: 2026-06-10)
-- [T-079] 작업 승인 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
-- [T-080] `AGENTS.md` current-state 작업 ID 참조 규칙 추가 (done: 2026-06-10)
-- [T-081] `current-state.md` 최근 완료 작업을 tasks ID와 완료일 형식으로 정리 (done: 2026-06-10)
-- [T-082] ADR-010 current-state.md 작업 ID와 완료일 규칙 도입 기록 (done: 2026-06-10)
-- [T-083] current-state ID/완료일 규칙 변경사항 리뷰 완료 (done: 2026-06-10)
-- [T-084] `AGENTS.md` 단순 질의 문서 업데이트 예외 규칙 추가 (done: 2026-06-11)
-- [T-085] `AGENTS.md`와 ADR-010의 작업 ID 표현을 참조 기준으로 정리 (done: 2026-06-11)
-- [T-086] `decisions.md` 상단에 구형 기록 유지 안내 추가 (done: 2026-06-11)
-- [T-087] ADR-011 Memory Bank 규칙 표현 명확화 기록 (done: 2026-06-11)
-- [T-088] Memory Bank 규칙 표현 정리 변경사항 리뷰 완료 (done: 2026-06-11)
 - [T-068] PR #7 `docs: Git PR 운영 규칙 보강` develop 병합 및 로컬 develop 동기화 (done: 2026-06-11)
 - [T-089] `AGENTS.md` PR 병합 상태 기록 커밋 금지 원칙 추가 (done: 2026-06-11)
 - [T-090] `coding-rules.md` PR 병합 후 Memory Bank 업데이트 처리 기준 보강 (done: 2026-06-11)
@@ -43,10 +19,14 @@
 - [T-094] [ATS-7] `coding-rules.md` Jira 이슈 키 기반 브랜치/커밋/PR 규칙 추가 (done: 2026-06-13)
 - [T-095] [ATS-7] ADR-013 Jira 이슈 키 기반 작업 추적 도입 기록 (done: 2026-06-13)
 - [T-096] [ATS-7] Jira 이슈 키 작업 흐름 변경사항 리뷰 완료 (done: 2026-06-13)
+- [T-074] [ATS-2] 실제 `OPENAI_API_KEY` 설정 후 OpenAI API 호출 검증 대기 해소 (done: 2026-06-13)
+- [T-097] [ATS-2] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
+- [T-098] [ATS-2] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
+- [T-099] [ATS-2] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
 
 ## 열린 이슈
 
-- [T-074] [ATS-2] 로컬/배포 환경에는 실제 `OPENAI_API_KEY`를 설정해야 한다.
+- [T-069] [ATS-2] YouTube `timedtext` 자막 엔드포인트가 공개 자막이 있는 영상에서도 200 응답과 빈 본문을 반환해 URL 입력부터 요약 결과까지의 전체 성공 흐름 검증이 보류되었다.
 - [T-071/T-072] [ATS-4/ATS-5] 프론트엔드와 백엔드 배포 URL은 아직 확정되지 않았다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
 - [T-073] [ATS-6] `develop -> main` PR #1은 배포 준비 단계에서 다시 확인해야 한다.
