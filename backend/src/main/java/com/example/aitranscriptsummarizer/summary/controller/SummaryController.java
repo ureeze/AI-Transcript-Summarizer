@@ -1,5 +1,8 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.controller;
 
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeRequest;
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeResponse;
+import com.example.aitranscriptsummarizer.summary.service.SummaryService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

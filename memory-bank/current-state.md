@@ -23,6 +23,7 @@
 - [T-097] [ATS-2] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
 - [T-098] [ATS-2] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
 - [T-099] [ATS-2] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
+- [T-100] [ATS-8] 백엔드 패키지 구조를 도메인 기준 + 계층 하위 구조로 정리 (done: 2026-06-13)
 
 ## 열린 이슈
 

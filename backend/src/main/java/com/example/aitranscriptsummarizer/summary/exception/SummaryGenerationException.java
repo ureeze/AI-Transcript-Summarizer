@@ -1,4 +1,4 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.exception;
 
 public class SummaryGenerationException extends RuntimeException {
 

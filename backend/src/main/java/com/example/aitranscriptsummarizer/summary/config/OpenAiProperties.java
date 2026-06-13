@@ -1,4 +1,4 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

@@ -1,5 +1,6 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.youtube.service;
 
+import com.example.aitranscriptsummarizer.summary.exception.TranscriptUnavailableException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.net.URI;
 import java.util.ArrayList;

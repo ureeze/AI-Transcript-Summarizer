@@ -8,11 +8,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 
-import com.example.aitranscriptsummarizer.summary.OpenAiSummaryClient;
-import com.example.aitranscriptsummarizer.summary.SummarizeResponse;
-import com.example.aitranscriptsummarizer.summary.SummaryGenerationException;
-import com.example.aitranscriptsummarizer.summary.TranscriptUnavailableException;
-import com.example.aitranscriptsummarizer.summary.YouTubeTranscriptService;
+import com.example.aitranscriptsummarizer.summary.client.OpenAiSummaryClient;
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeResponse;
+import com.example.aitranscriptsummarizer.summary.exception.SummaryGenerationException;
+import com.example.aitranscriptsummarizer.summary.exception.TranscriptUnavailableException;
+import com.example.aitranscriptsummarizer.youtube.service.YouTubeTranscriptService;
 
 import java.util.List;
 

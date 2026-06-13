@@ -1,5 +1,8 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.client;
 
+import com.example.aitranscriptsummarizer.summary.config.OpenAiProperties;
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeResponse;
+import com.example.aitranscriptsummarizer.summary.exception.SummaryGenerationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
