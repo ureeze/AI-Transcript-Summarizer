@@ -28,15 +28,26 @@
 - `main` 브랜치는 배포 브랜치로 사용한다.
 - `develop` 브랜치는 기본 개발 브랜치로 사용한다.
 - 새로운 작업은 최신 `develop`에서 `feature/*` 브랜치를 생성해 진행한다.
+- Jira 이슈가 있는 작업은 브랜치명에 Jira 이슈 키를 포함한다.
+- Jira-GitHub 연동을 확인하려는 작업은 가능한 경우 Jira 이슈 화면의 브랜치 생성 기능을 사용한다.
 - `feature/*` 브랜치는 `develop`으로 Pull Request를 생성한다.
 - `develop` 검증 후 `main`으로 병합한다.
 - `develop`과 `main`에는 직접 커밋하지 않는다.
+
+브랜치 예시:
+
+```text
+feature/ATS-2-openai-api-e2e-integration-test
+feature/ATS-3-improve-frontend-error-messages
+feature/ATS-4-configure-render-backend-deployment
+```
 
 ### PR 정책
 
 - PR은 의미 있는 작업 단위로 생성한다.
 - 관련 코드 변경, 테스트, 문서 업데이트는 같은 PR에 포함한다.
 - 너무 작은 변경은 진행 중인 같은 목적의 feature 브랜치 또는 PR에 포함한다.
+- Jira 이슈가 있는 작업은 PR 제목에 Jira 이슈 키를 포함한다.
 - PR 생성 전 테스트/빌드 또는 문서 변경 리뷰를 완료한다.
 - PR 병합 사실만 기록하기 위한 별도 커밋은 기본적으로 만들지 않는다.
 - PR 병합 사실은 GitHub PR 기록과 merge commit을 기준으로 추적한다.
@@ -47,9 +58,18 @@
 ### 커밋 전 확인
 
 - 커밋 메시지는 한국어로 작성한다.
+- Jira 이슈가 있는 작업은 커밋 메시지 변경 내용에 Jira 이슈 키를 포함한다.
 - 커밋 전 `git status`와 `git diff`로 변경 파일을 확인한다.
 - 커밋에는 현재 작업과 관련된 변경만 포함한다.
 - 불필요한 빌드 산출물, 임시 파일, 로컬 환경 파일은 커밋하지 않는다.
+
+커밋 예시:
+
+```text
+test: ATS-2 OpenAI API 전체 흐름 검증
+fix: ATS-3 프론트엔드 에러 메시지 개선
+chore: ATS-4 Render 백엔드 배포 설정
+```
 
 ### 예외 정책
 
@@ -98,6 +118,21 @@ docs: 커밋 메시지 정책 추가
 - 문서만 변경한 경우 `docs`를 사용한다.
 - 기능 변경 없이 구조만 개선한 경우 `refactor`를 사용한다.
 - 코드 동작 변경 없이 포맷만 바꾼 경우 `style`을 사용한다.
+
+## Jira 작업 추적 규칙
+
+- Jira는 작업 상태, 우선순위, 담당자, 에픽 관계를 관리하는 운영 도구로 사용한다.
+- Memory Bank는 Codex 세션 복구를 위한 프로젝트 내부 기록으로 유지한다.
+- Jira 이슈가 있는 작업은 Memory Bank 작업 항목에 Jira 이슈 키를 함께 기록한다.
+- Jira 이슈 키는 브랜치명, 커밋 메시지, PR 제목에 가능한 한 포함한다.
+- 에픽 `ATS-1`은 MVP 배포 준비 전체 범위를 나타내고, 하위 작업은 `ATS-2`부터 `ATS-6`까지 연결한다.
+
+PR 제목 예시:
+
+```text
+[ATS-2] OpenAI API End-to-End Integration Test
+[ATS-3] Improve Frontend Error Messages
+```
 
 ## 코드 리뷰 규칙
 
