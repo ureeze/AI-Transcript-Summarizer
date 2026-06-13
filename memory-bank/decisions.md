@@ -499,3 +499,35 @@ PR 병합 사실만 기록하기 위한 `develop` 직접 커밋은 만들지 않
 - 병합 상태 기록만을 위한 `develop` 직접 커밋은 기본적으로 금지한다.
 - Memory Bank 업데이트가 필요하면 feature 브랜치에서 커밋하고 PR을 생성한다.
 - 사용자가 명시적으로 요청한 경우에만 예외를 검토한다.
+
+## ADR-013 Jira 이슈 키 기반 작업 추적 도입
+
+### 날짜
+
+2026-06-13
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+Jira 이슈 키를 Jira, GitHub, Codex Memory Bank를 연결하는 공통 작업 식별자로 사용한다. Jira 이슈가 있는 작업은 Memory Bank 작업 항목, 브랜치명, 커밋 메시지, PR 제목에 가능한 한 Jira 이슈 키를 포함한다.
+
+### 이유
+
+1인 프로젝트에서도 실무형 작업 흐름을 연습하려면 작업 관리 도구와 코드 변경 이력이 같은 작업 단위로 연결되어야 한다. Jira 이슈 키를 공통 식별자로 사용하면 Jira의 상태 관리, GitHub의 브랜치/PR 이력, Codex의 Memory Bank 기록을 같은 작업으로 추적할 수 있다.
+
+### 고려한 대안
+
+- Memory Bank의 `T-xxx` ID만 사용한다.
+- Jira 이슈 키만 사용하고 Memory Bank 작업 ID를 제거한다.
+- Memory Bank `T-xxx` ID와 Jira 이슈 키를 함께 사용한다.
+
+### 영향 범위
+
+- Jira 에픽 `ATS-1`은 MVP 배포 준비 전체 범위를 나타낸다.
+- 남은 작업은 `ATS-2`부터 `ATS-6`까지의 Jira 이슈와 연결한다.
+- Memory Bank는 `T-xxx` ID와 Jira 이슈 키를 함께 기록한다.
+- Git 브랜치, 커밋 메시지, PR 제목에는 가능한 경우 Jira 이슈 키를 포함한다.
+- Jira는 작업 추적의 운영 도구, Memory Bank는 Codex 컨텍스트 복구 도구로 사용한다.
