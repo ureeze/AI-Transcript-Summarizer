@@ -6,9 +6,30 @@ type SummarizeResponse = {
   keywords: string[];
 };
 
+type ApiErrorResponse = {
+  message?: string;
+};
+
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080';
 const YOUTUBE_URL_PATTERN =
   /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[A-Za-z0-9_-]{11}.*$/;
+const DEFAULT_ERROR_MESSAGE = '요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요.';
+
+function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
+  return typeof value === 'object' && value !== null && 'message' in value;
+}
+
+async function readErrorMessage(response: Response) {
+  try {
+    const data: unknown = await response.json();
+    if (isApiErrorResponse(data) && typeof data.message === 'string' && data.message.trim()) {
+      return data.message;
+    }
+  } catch {
+    return DEFAULT_ERROR_MESSAGE;
+  }
+  return DEFAULT_ERROR_MESSAGE;
+}
 
 function App() {
   const [youtubeUrl, setYoutubeUrl] = useState('');
@@ -41,13 +62,14 @@ function App() {
       });
 
       if (!response.ok) {
-        throw new Error('요약 요청에 실패했습니다.');
+        setError(await readErrorMessage(response));
+        return;
       }
 
       const data = (await response.json()) as SummarizeResponse;
       setResult(data);
     } catch {
-      setError('요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요.');
+      setError(DEFAULT_ERROR_MESSAGE);
     } finally {
       setIsLoading(false);
     }
