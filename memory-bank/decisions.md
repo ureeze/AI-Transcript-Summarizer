@@ -567,3 +567,35 @@ Jira 이슈 키를 Jira, GitHub, Codex Memory Bank를 연결하는 공통 작업
 - `youtube/service`
 - 백엔드 테스트 패키지 구조
 - `architecture.md`의 Backend 모듈 구성
+
+## ADR-015 AWS EC2 기반 Docker Compose 배포 전략 채택
+
+### 날짜
+
+2026-06-14
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+MVP 운영 배포 전략을 Render/Vercel에서 AWS Cloud Free Tier 기반 EC2, Nginx, Docker Compose, GitHub Actions, GHCR 조합으로 변경한다.
+
+### 이유
+
+사용자는 실무에 가까운 배포 경험을 원한다. AWS EC2 기반 배포는 서버 접속, reverse proxy, 컨테이너 실행, 이미지 레지스트리, CI/CD, 환경변수와 Secret 관리까지 직접 다루므로 단순 PaaS 배포보다 운영 흐름을 더 폭넓게 연습할 수 있다. Nginx는 현업에서 널리 사용되는 reverse proxy이며, GitHub Actions와 GHCR은 GitHub 기반 CI/CD와 컨테이너 이미지 배포 흐름을 익히기에 적합하다.
+
+### 고려한 대안
+
+- Render 백엔드 + Vercel 프론트엔드 배포
+- Oracle Cloud Free Tier + Docker Compose + GitHub Actions + GHCR
+- AWS Cloud Free Tier + Nginx + Docker Compose + GitHub Actions + GHCR
+
+### 영향 범위
+
+- `docs/prd.md`의 배포 방식
+- `memory-bank/architecture.md`의 배포 구조와 배포 데이터 흐름
+- `memory-bank/tech-stack.md`의 인프라 기술 스택
+- `memory-bank/tasks.md`의 ATS-4, ATS-5, ATS-6 작업 정의
+- Jira `ATS-4`, `ATS-5`, `ATS-6` 배포 작업 정의

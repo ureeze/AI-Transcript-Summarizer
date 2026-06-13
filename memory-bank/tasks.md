@@ -2,9 +2,9 @@
 
 ## Next
 
-- [T-071] [ATS-4] Render 백엔드 배포 설정
-- [T-072] [ATS-5] Vercel 프론트엔드 배포 설정
-- [T-073] [ATS-6] 배포 준비 완료 후 PR #1(`develop` -> `main`) 검토 및 병합
+- [T-071] [ATS-4] AWS EC2 + Nginx + Docker Compose 배포 구성
+- [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성
+- [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합
 
 ## In Progress
 
@@ -13,7 +13,7 @@
 ## Blocked
 
 - [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
-- [T-075] [ATS-4/ATS-5] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
+- [T-075] [ATS-4/ATS-5] 배포 검증은 AWS EC2와 GitHub Actions 배포 환경 설정 전까지 대기
 
 ## Done
 
@@ -112,3 +112,4 @@
 - [T-099] [ATS-2] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
 - [T-100] [ATS-8] 백엔드 패키지 구조를 도메인 기준 + 계층 하위 구조로 정리 (done: 2026-06-13)
 - [T-070] [ATS-3] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선 (done: 2026-06-13)
+- [T-101] [ATS-4] 배포 전략을 AWS Cloud Free Tier + Nginx + Docker Compose + GitHub Actions + GHCR로 변경 (done: 2026-06-14)

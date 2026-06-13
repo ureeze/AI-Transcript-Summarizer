@@ -15,6 +15,21 @@ external services/
   AI 요약 API
 ```
 
+## 배포 구조
+
+```text
+GitHub
+  - GitHub Actions에서 frontend/backend Docker 이미지를 빌드한다.
+  - 빌드된 이미지를 GHCR에 push한다.
+  - AWS EC2 서버에 접속해 docker compose pull/up으로 배포한다.
+
+AWS EC2
+  - Nginx가 외부 HTTP 요청을 받는다.
+  - / 요청은 frontend 컨테이너로 전달한다.
+  - /api/* 요청은 backend 컨테이너로 전달한다.
+  - backend 컨테이너는 YouTube 자막 데이터와 OpenAI API를 호출한다.
+```
+
 ## 책임 경계
 
 ```text
@@ -32,6 +47,12 @@ Backend
 External Services
   - YouTube는 자막 원천이다.
   - AI Provider는 요약 결과 생성 책임을 가진다.
+
+Deployment
+  - AWS EC2는 운영 서버 역할을 가진다.
+  - Nginx는 reverse proxy와 라우팅 책임을 가진다.
+  - Docker Compose는 서버 내 컨테이너 실행 구성을 관리한다.
+  - GitHub Actions와 GHCR은 이미지 빌드, 저장, 배포 흐름을 담당한다.
 ```
 
 ## 모듈 구성
@@ -81,6 +102,15 @@ External Services
 5. `OpenAiSummaryClient`가 자막을 AI 요약 API에 전달한다.
 6. 백엔드가 요약 JSON을 `SummarizeResponse`로 반환한다.
 7. 프론트엔드가 요약, 핵심 포인트, 키워드를 표시한다.
+
+## 배포 데이터 흐름
+
+1. `develop` 또는 배포 대상 브랜치의 변경사항이 GitHub에 push된다.
+2. GitHub Actions가 frontend/backend Docker 이미지를 빌드한다.
+3. GitHub Actions가 이미지를 GHCR에 push한다.
+4. GitHub Actions가 AWS EC2에 SSH로 접속한다.
+5. EC2에서 Docker Compose가 최신 이미지를 pull하고 컨테이너를 재시작한다.
+6. 사용자는 Nginx를 통해 운영 서비스에 접속한다.
 
 ## API 구조
 
