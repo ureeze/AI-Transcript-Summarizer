@@ -261,17 +261,21 @@ Transcript:
 
 ## 10. 배포
 
-### Frontend
+### 배포 환경
 
-- Vercel
+- AWS Cloud Free Tier 기반 EC2
 
-### Backend
+### 배포 방식
 
-- Render
+- Docker Compose 기반 단일 서버 배포
+- Nginx Reverse Proxy
+- GitHub Actions CI/CD
+- GHCR(GitHub Container Registry) Docker 이미지 저장소
 
 ### 환경변수
 
 - `OPENAI_API_KEY`
+- GitHub Actions 및 서버 배포에 필요한 SSH/서버 접속 정보는 GitHub Secrets로 관리한다.
 
 ---
 

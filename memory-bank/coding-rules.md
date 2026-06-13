@@ -39,7 +39,7 @@
 ```text
 feature/ATS-2-openai-api-e2e-integration-test
 feature/ATS-3-improve-frontend-error-messages
-feature/ATS-4-configure-render-backend-deployment
+feature/ATS-4-configure-aws-docker-compose-deployment
 ```
 
 ### PR 정책
@@ -68,7 +68,7 @@ feature/ATS-4-configure-render-backend-deployment
 ```text
 test: ATS-2 OpenAI API 전체 흐름 검증
 fix: ATS-3 프론트엔드 에러 메시지 개선
-chore: ATS-4 Render 백엔드 배포 설정
+chore: ATS-4 AWS Docker Compose 배포 설정
 ```
 
 ### 예외 정책
