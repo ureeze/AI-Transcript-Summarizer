@@ -1,4 +1,4 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.dto;
 
 import java.util.List;
 

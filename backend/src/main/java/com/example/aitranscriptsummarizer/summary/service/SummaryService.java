@@ -1,5 +1,9 @@
-package com.example.aitranscriptsummarizer.summary;
+package com.example.aitranscriptsummarizer.summary.service;
 
+import com.example.aitranscriptsummarizer.summary.client.OpenAiSummaryClient;
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeRequest;
+import com.example.aitranscriptsummarizer.summary.dto.SummarizeResponse;
+import com.example.aitranscriptsummarizer.youtube.service.YouTubeTranscriptService;
 import org.springframework.stereotype.Service;
 
 @Service

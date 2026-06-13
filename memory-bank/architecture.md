@@ -50,23 +50,27 @@ External Services
 
 ### Backend
 
-- `SummaryController`
+- `summary/controller/SummaryController`
   - `POST /api/summarize` 엔드포인트 제공
-- `SummarizeRequest`
+- `summary/dto/SummarizeRequest`
   - `youtubeUrl` 검증
-- `SummarizeResponse`
+- `summary/dto/SummarizeResponse`
   - `summary`, `keyPoints`, `keywords` 응답
-- `SummaryService`
+- `summary/service/SummaryService`
   - YouTube 자막 추출 후 OpenAI 요약 클라이언트 호출
-- `YouTubeTranscriptService`
+- `summary/client/OpenAiSummaryClient`
+  - AI 요약 API 호출
+  - JSON 응답 파싱
+- `summary/config/OpenAiProperties`
+  - OpenAI API 설정 바인딩
+- `summary/exception/SummaryExceptionHandler`
+  - 검증 실패, 자막 추출 실패, 요약 실패 응답 처리
+- `summary/exception/*Exception`
+  - 요약 생성 실패와 자막 추출 실패 예외
+- `youtube/service/YouTubeTranscriptService`
   - YouTube video ID 추출
   - 공개 자막 트랙 조회
   - json3 자막 텍스트 구성
-- `OpenAiSummaryClient`
-  - AI 요약 API 호출
-  - JSON 응답 파싱
-- `SummaryExceptionHandler`
-  - 검증 실패, 자막 추출 실패, 요약 실패 응답 처리
 
 ## 데이터 흐름
 

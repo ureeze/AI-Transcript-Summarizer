@@ -531,3 +531,39 @@ Jira 이슈 키를 Jira, GitHub, Codex Memory Bank를 연결하는 공통 작업
 - Memory Bank는 `T-xxx` ID와 Jira 이슈 키를 함께 기록한다.
 - Git 브랜치, 커밋 메시지, PR 제목에는 가능한 경우 Jira 이슈 키를 포함한다.
 - Jira는 작업 추적의 운영 도구, Memory Bank는 Codex 컨텍스트 복구 도구로 사용한다.
+
+## ADR-014 백엔드 도메인 기준 패키지 구조 정리
+
+### 날짜
+
+2026-06-13
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+백엔드 패키지 구조를 도메인 기준 + 계층 하위 분리 방식으로 정리한다.
+
+### 이유
+
+기존 백엔드는 controller, service, client, dto, config, exception, YouTube 자막 추출 책임이 모두 `summary` 패키지에 모여 있었다. 기능이 작을 때는 단순하지만, 배포 준비와 오류 처리 개선이 이어지면 책임이 섞여 파일 탐색과 변경 영향 파악이 어려워질 수 있다. 도메인 기준으로 `summary`와 `youtube`를 나누고, `summary` 내부는 계층별 하위 패키지로 분리해 책임을 명확히 한다.
+
+### 고려한 대안
+
+- 기존 단일 `summary` 패키지 유지
+- 최상위 `controller`, `service`, `dto`, `exception` 계층 패키지로만 분리
+- 도메인 기준 + 계층 하위 패키지 구조 도입
+
+### 영향 범위
+
+- `summary/controller`
+- `summary/service`
+- `summary/client`
+- `summary/dto`
+- `summary/config`
+- `summary/exception`
+- `youtube/service`
+- 백엔드 테스트 패키지 구조
+- `architecture.md`의 Backend 모듈 구성
