@@ -599,3 +599,39 @@ MVP 운영 배포 전략을 Render/Vercel에서 AWS Cloud Free Tier 기반 EC2, 
 - `memory-bank/tech-stack.md`의 인프라 기술 스택
 - `memory-bank/tasks.md`의 ATS-4, ATS-5, ATS-6 작업 정의
 - Jira `ATS-4`, `ATS-5`, `ATS-6` 배포 작업 정의
+
+## ADR-016 Docker Compose 기반 로컬 배포 구성 도입
+
+### 날짜
+
+2026-06-14
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+백엔드와 프론트엔드는 각각 Dockerfile을 가지고, `deploy/docker-compose.yml`에서 Nginx reverse proxy, frontend, backend 컨테이너를 함께 실행한다. 외부 요청은 Nginx가 받고 `/`는 frontend 컨테이너, `/api/*`는 backend 컨테이너로 전달한다.
+
+### 이유
+
+AWS EC2 단일 서버 배포를 준비하려면 로컬에서 먼저 서버와 유사한 컨테이너 구성을 검증할 수 있어야 한다. Compose 파일을 `deploy/`에 모으면 EC2 서버에서도 같은 구조를 재사용하기 쉽고, Nginx reverse proxy를 로컬부터 사용하면 운영 라우팅과 개발 검증 흐름의 차이를 줄일 수 있다.
+
+### 고려한 대안
+
+- 프론트엔드와 백엔드를 각각 호스트 포트로 직접 노출한다.
+- 프론트엔드 컨테이너만 Nginx를 사용하고 reverse proxy는 생략한다.
+- 별도 Nginx reverse proxy 컨테이너를 두고 frontend/backend를 내부 네트워크로만 연결한다.
+
+### 영향 범위
+
+- `backend/Dockerfile`
+- `frontend/Dockerfile`
+- `frontend/nginx.conf`
+- `deploy/docker-compose.yml`
+- `deploy/nginx/nginx.conf`
+- `deploy/.env.example`
+- `README.md`
+- `memory-bank/architecture.md`
+- `memory-bank/tech-stack.md`

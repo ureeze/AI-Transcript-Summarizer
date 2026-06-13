@@ -8,6 +8,7 @@
 docs/         PRD 문서
 frontend/     React + Vite + TypeScript + Tailwind CSS
 backend/      Spring Boot 3 + Java 21 + Gradle
+deploy/       Docker Compose + Nginx 배포 구성
 memory-bank/  프로젝트 장기 기억과 작업 상태
 ```
 
@@ -47,8 +48,27 @@ API Key는 백엔드 환경변수로만 설정하며 프론트엔드에 노출�
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
+Docker Compose 배포에서는 프론트엔드를 같은 origin에서 제공하므로 `VITE_API_BASE_URL`을 빈 값으로 빌드해 `/api` 경로를 사용한다.
+
+## Docker Compose 실행
+
+```bash
+cd deploy
+Copy-Item .env.example .env
+```
+
+`deploy/.env`의 `OPENAI_API_KEY` 값을 설정한 뒤 실행한다.
+
+```bash
+docker compose up --build
+```
+
+서비스는 Nginx를 통해 `http://localhost`에서 접근한다.
+
+`docker compose config`는 환경변수 값을 출력할 수 있으므로 실제 API Key가 설정된 터미널에서는 실행 결과를 공유하지 않는다.
+
 ## 다음 단계
 
-1. 로컬에서 백엔드와 프론트엔드를 함께 실행해 전체 흐름을 검증한다.
-2. Render와 Vercel 배포 환경변수를 설정한다.
-3. 운영 URL에서 실제 유튜브 URL 요약 흐름을 확인한다.
+1. Docker Compose 기반 로컬 컨테이너 실행 흐름을 검증한다.
+2. AWS EC2 서버에 Docker와 Docker Compose 실행 환경을 준비한다.
+3. GitHub Actions와 GHCR 기반 배포 자동화를 구성한다.
