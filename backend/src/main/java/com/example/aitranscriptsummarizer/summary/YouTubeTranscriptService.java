@@ -9,8 +9,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.springframework.stereotype.Service;
@@ -66,14 +70,22 @@ public class YouTubeTranscriptService {
             String captionTracksJson = extractCaptionTracksJson(watchPage)
                     .orElseThrow(TranscriptUnavailableException::new);
             JsonNode captionTracks = objectMapper.readTree(captionTracksJson);
-            String captionUrl = selectCaptionUrl(captionTracks)
-                    .orElseThrow(TranscriptUnavailableException::new);
-            String transcriptJson = textFetcher.fetch(URI.create(addJsonFormat(captionUrl)));
-            String transcript = parseTranscriptText(transcriptJson);
-            if (transcript.isBlank()) {
+            List<String> captionUrls = selectCaptionUrls(captionTracks);
+            if (captionUrls.isEmpty()) {
                 throw new TranscriptUnavailableException();
             }
-            return transcript;
+            for (String captionUrl : captionUrls) {
+                try {
+                    String transcriptJson = textFetcher.fetch(URI.create(addJsonFormat(captionUrl)));
+                    String transcript = parseTranscriptText(transcriptJson);
+                    if (!transcript.isBlank()) {
+                        return transcript;
+                    }
+                } catch (Exception ignored) {
+                    // Try the next available track because YouTube can return empty or invalid caption payloads.
+                }
+            }
+            throw new TranscriptUnavailableException();
         } catch (TranscriptUnavailableException exception) {
             throw exception;
         } catch (Exception exception) {
@@ -125,20 +137,24 @@ public class YouTubeTranscriptService {
         return Optional.empty();
     }
 
-    private Optional<String> selectCaptionUrl(JsonNode captionTracks) {
+    private List<String> selectCaptionUrls(JsonNode captionTracks) {
         if (!captionTracks.isArray() || captionTracks.isEmpty()) {
-            return Optional.empty();
+            return List.of();
         }
 
-        Optional<String> preferred = findCaptionUrlByLanguage(captionTracks, "ko")
-                .or(() -> findCaptionUrlByLanguage(captionTracks, "en"));
-        if (preferred.isPresent()) {
-            return preferred;
-        }
+        Set<String> captionUrls = new LinkedHashSet<>();
+        findCaptionUrlByLanguage(captionTracks, "ko").ifPresent(captionUrls::add);
+        findCaptionUrlByLanguage(captionTracks, "en").ifPresent(captionUrls::add);
 
-        JsonNode firstTrack = captionTracks.get(0);
-        JsonNode baseUrl = firstTrack.get("baseUrl");
-        return baseUrl == null ? Optional.empty() : Optional.of(baseUrl.asText());
+        Iterator<JsonNode> iterator = captionTracks.elements();
+        while (iterator.hasNext()) {
+            JsonNode track = iterator.next();
+            JsonNode baseUrl = track.get("baseUrl");
+            if (baseUrl != null && baseUrl.isTextual()) {
+                captionUrls.add(baseUrl.asText());
+            }
+        }
+        return new ArrayList<>(captionUrls);
     }
 
     private Optional<String> findCaptionUrlByLanguage(JsonNode captionTracks, String languageCode) {

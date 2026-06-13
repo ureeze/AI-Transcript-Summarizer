@@ -74,4 +74,39 @@ class YouTubeTranscriptServiceTests {
         assertThat(transcript).isEqualTo("Hello world from captions.");
         assertThat(requestedUris.get(1).toString()).contains("fmt=json3");
     }
+
+    @Test
+    void triesNextCaptionTrackWhenPreferredTrackIsEmpty() {
+        List<URI> requestedUris = new ArrayList<>();
+        YouTubeTranscriptService service = new YouTubeTranscriptService(uri -> {
+            requestedUris.add(uri);
+            if (requestedUris.size() == 1) {
+                return """
+                        <script>
+                        {"captionTracks":[
+                          {"baseUrl":"https://example.com/caption?lang=en","languageCode":"en"},
+                          {"baseUrl":"https://example.com/caption?lang=ja","languageCode":"ja"}
+                        ],"audioTracks":[]}
+                        </script>
+                        """;
+            }
+            if (requestedUris.size() == 2) {
+                return "";
+            }
+            return """
+                    {
+                      "events": [
+                        { "segs": [{ "utf8": "Fallback caption" }] }
+                      ]
+                    }
+                    """;
+        }, new ObjectMapper());
+
+        String transcript = service.fetchTranscript("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+
+        assertThat(transcript).isEqualTo("Fallback caption");
+        assertThat(requestedUris).hasSize(3);
+        assertThat(requestedUris.get(1).toString()).contains("lang=en");
+        assertThat(requestedUris.get(2).toString()).contains("lang=ja");
+    }
 }

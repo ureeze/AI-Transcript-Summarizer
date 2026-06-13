@@ -2,7 +2,6 @@
 
 ## Next
 
-- [T-069] 실제 `OPENAI_API_KEY`를 설정하고 로컬 전체 요약 흐름 검증
 - [T-070] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선
 - [T-071] Render 백엔드 배포 설정
 - [T-072] Vercel 프론트엔드 배포 설정
@@ -14,7 +13,7 @@
 
 ## Blocked
 
-- [T-074] 실제 OpenAI API 호출 검증은 `OPENAI_API_KEY` 설정 전까지 대기
+- [T-069] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
 - [T-075] 배포 검증은 Render/Vercel 환경 설정 전까지 대기
 
 ## Done
@@ -104,3 +103,7 @@
 - [T-090] `coding-rules.md` PR 병합 후 Memory Bank 업데이트 처리 기준 보강 (done: 2026-06-11)
 - [T-091] ADR-012 PR 병합 상태 기록 커밋 금지 명확화 기록 (done: 2026-06-11)
 - [T-092] PR 병합 기록 커밋 정책 변경사항 리뷰 완료 (done: 2026-06-11)
+- [T-074] 실제 `OPENAI_API_KEY` 설정 후 OpenAI API 호출 검증 대기 해소 (done: 2026-06-13)
+- [T-097] `OpenAiSummaryClient` Spring Bean 생성자 주입 오류 수정 (done: 2026-06-13)
+- [T-098] OpenAI API 실제 호출과 서비스 프롬프트 JSON 배열 응답 검증 (done: 2026-06-13)
+- [T-099] YouTube 자막 트랙 fallback 시도 로직과 테스트 추가 (done: 2026-06-13)
