@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성
+- [T-106] [ATS-5] GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 및 결과 확인
 - [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합
 
 ## In Progress
@@ -117,3 +117,5 @@
 - [T-103] [ATS-4] EC2 Amazon Linux 2023 서버에 Docker, Git, Docker Compose, Buildx 설치 (done: 2026-06-15)
 - [T-104] [ATS-4] PR #15 develop 병합 및 EC2 SSH 재확인 실패 기록 (done: 2026-06-15)
 - [T-105] [ATS-4] EC2 SSH 접속 복구 확인 및 서버 저장소를 최신 develop으로 동기화 (done: 2026-06-15)
+- [T-107] [ATS-4] PR #16 develop 병합 및 로컬 develop 동기화 (done: 2026-06-15)
+- [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성 (done: 2026-06-15)

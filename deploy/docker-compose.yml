@@ -14,20 +14,20 @@ services:
     restart: unless-stopped
 
   frontend:
+    image: ${FRONTEND_IMAGE:-ai-transcript-summarizer-frontend:local}
     build:
       context: ../frontend
       args:
         VITE_API_BASE_URL: ""
-    image: ai-transcript-summarizer-frontend:local
     container_name: ai-transcript-summarizer-frontend
     networks:
       - app-network
     restart: unless-stopped
 
   backend:
+    image: ${BACKEND_IMAGE:-ai-transcript-summarizer-backend:local}
     build:
       context: ../backend
-    image: ai-transcript-summarizer-backend:local
     container_name: ai-transcript-summarizer-backend
     env_file:
       - .env
