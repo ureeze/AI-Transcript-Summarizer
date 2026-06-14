@@ -2,7 +2,6 @@
 
 ## Next
 
-- [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용
 - [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성
 - [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합
 
@@ -13,6 +12,7 @@
 ## Blocked
 
 - [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
+- [T-071] [ATS-4] AWS EC2 서버 Docker Compose 배포 적용은 서버 빌드 중 SSH 응답 불가 상태가 되어 EC2 재부팅 또는 복구 전까지 대기
 - [T-075] [ATS-4/ATS-5] 배포 검증은 AWS EC2와 GitHub Actions 배포 환경 설정 전까지 대기
 
 ## Done
@@ -114,3 +114,4 @@
 - [T-070] [ATS-3] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선 (done: 2026-06-13)
 - [T-101] [ATS-4] 배포 전략을 AWS Cloud Free Tier + Nginx + Docker Compose + GitHub Actions + GHCR로 변경 (done: 2026-06-14)
 - [T-102] [ATS-4] Dockerfile, Docker Compose, Nginx 로컬 배포 구성 추가 및 검증 (done: 2026-06-14)
+- [T-103] [ATS-4] EC2 Amazon Linux 2023 서버에 Docker, Git, Docker Compose, Buildx 설치 (done: 2026-06-15)
