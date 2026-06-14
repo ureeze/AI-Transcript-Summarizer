@@ -32,6 +32,7 @@
 
 - Cloud: AWS Cloud Free Tier 기반 EC2
 - Reverse Proxy: Nginx
+- Static Web Server: Nginx
 - Container Runtime: Docker
 - Deployment Orchestration: Docker Compose
 - CI/CD: GitHub Actions

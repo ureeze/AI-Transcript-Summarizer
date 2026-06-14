@@ -59,6 +59,12 @@ Deployment
 
 ### Frontend
 
+- `Dockerfile`
+  - Vite 앱을 빌드하고 Nginx 정적 서버 이미지로 패키징
+- `.dockerignore`
+  - Docker build context에서 의존성/빌드 산출물 제외
+- `nginx.conf`
+  - 프론트엔드 컨테이너 내부 정적 파일 서빙과 SPA fallback 설정
 - `src/App.tsx`
   - 유튜브 URL 입력
   - 클라이언트 검증
@@ -71,6 +77,10 @@ Deployment
 
 ### Backend
 
+- `Dockerfile`
+  - Gradle `bootJar` 빌드 후 Java 21 JRE 이미지로 Spring Boot 앱 실행
+- `.dockerignore`
+  - Docker build context에서 Gradle/빌드 산출물 제외
 - `summary/controller/SummaryController`
   - `POST /api/summarize` 엔드포인트 제공
 - `summary/dto/SummarizeRequest`
@@ -92,6 +102,16 @@ Deployment
   - YouTube video ID 추출
   - 공개 자막 트랙 조회
   - json3 자막 텍스트 구성
+
+### Deployment
+
+- `deploy/docker-compose.yml`
+  - Nginx reverse proxy, frontend, backend 컨테이너 실행 구성
+- `deploy/nginx/nginx.conf`
+  - `/` 요청은 frontend 컨테이너로 전달
+  - `/api/*` 요청은 backend 컨테이너로 전달
+- `deploy/.env.example`
+  - 로컬/서버 배포에 필요한 환경변수 예시
 
 ## 데이터 흐름
 

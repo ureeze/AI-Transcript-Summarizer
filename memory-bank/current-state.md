@@ -26,6 +26,7 @@
 - [T-100] [ATS-8] 백엔드 패키지 구조를 도메인 기준 + 계층 하위 구조로 정리 (done: 2026-06-13)
 - [T-070] [ATS-3] 프론트엔드 에러 메시지를 API 응답 메시지 기반으로 개선 (done: 2026-06-13)
 - [T-101] [ATS-4] 배포 전략을 AWS Cloud Free Tier + Nginx + Docker Compose + GitHub Actions + GHCR로 변경 (done: 2026-06-14)
+- [T-102] [ATS-4] Dockerfile, Docker Compose, Nginx 로컬 배포 구성 추가 및 검증 (done: 2026-06-14)
 
 ## 열린 이슈
 
@@ -36,6 +37,6 @@
 
 ## 다음 작업
 
-1. [T-071] [ATS-4] AWS EC2 + Nginx + Docker Compose 배포 구성을 진행한다.
+1. [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포를 적용한다.
 2. [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성을 진행한다.
 3. [T-073] [ATS-6] 운영 배포 검증 후 `develop -> main` PR #1을 검토한다.

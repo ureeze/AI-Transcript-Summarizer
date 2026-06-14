@@ -119,3 +119,27 @@ YouTube watch page에는 `captionTracks`가 포함되어 있었지만, 추출한
 ### 재발 방지
 
 비공식 YouTube 자막 추출 방식은 실패 가능성을 전제로 검증한다. 로컬/배포 검증 시 실제 자막 응답 본문이 비어 있는지 확인하고, 계속 실패하면 공식 API 또는 별도 자막 입력 fallback 같은 대안을 검토한다.
+
+---
+
+## 2026-06-14 - Docker Compose 설정 검증 시 환경변수 값 출력
+
+### 상태
+
+해결
+
+### 문제
+
+`docker compose config` 실행 시 로컬 PowerShell에 설정된 `OPENAI_API_KEY` 값이 Compose 설정 출력에 펼쳐질 수 있다.
+
+### 원인
+
+`docker-compose.yml`에서 `OPENAI_API_KEY: ${OPENAI_API_KEY}`처럼 직접 interpolation을 사용하면 Docker Compose가 설정 렌더링 단계에서 실제 환경변수 값을 출력한다.
+
+### 해결
+
+백엔드 컨테이너의 `OPENAI_API_KEY` 전달 방식을 `env_file` 기반으로 변경해 실제 값을 Compose 파일에 직접 기록하지 않도록 했다. 실제 값은 커밋하지 않는 `deploy/.env`에 두고, 저장소에는 `deploy/.env.example`만 포함한다.
+
+### 재발 방지
+
+`env_file`을 사용하더라도 `docker compose config`는 `.env` 값을 렌더링할 수 있으므로 실제 API Key가 설정된 환경에서 실행한 출력 결과를 공유하지 않는다. 배포 Secret은 GitHub Secrets 또는 서버의 비공개 `.env` 파일로만 관리한다.
