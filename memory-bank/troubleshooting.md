@@ -143,3 +143,27 @@ YouTube watch page에는 `captionTracks`가 포함되어 있었지만, 추출한
 ### 재발 방지
 
 `env_file`을 사용하더라도 `docker compose config`는 `.env` 값을 렌더링할 수 있으므로 실제 API Key가 설정된 환경에서 실행한 출력 결과를 공유하지 않는다. 배포 Secret은 GitHub Secrets 또는 서버의 비공개 `.env` 파일로만 관리한다.
+
+---
+
+## 2026-06-15 - EC2 Docker Compose 서버 빌드 중 SSH 응답 불가
+
+### 상태
+
+미해결
+
+### 문제
+
+AWS EC2 Amazon Linux 2023 서버에서 `docker compose up -d --build`를 실행한 뒤 SSH 접속이 `Connection timed out during banner exchange`로 실패했다.
+
+### 원인
+
+EC2 프리티어급 인스턴스에서 백엔드 Gradle 빌드와 프론트엔드 npm 빌드를 서버 내부에서 동시에 수행하면서 CPU 또는 메모리 자원이 고갈된 것으로 추정한다. 명령은 15분 이상 완료되지 않았고 이후 SSH banner 응답 단계에서도 타임아웃이 발생했다.
+
+### 해결
+
+아직 해결되지 않았다. AWS 콘솔에서 EC2 인스턴스를 재부팅하거나 상태 검사를 확인한 뒤 SSH 접속을 복구해야 한다.
+
+### 재발 방지
+
+EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 GHCR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
