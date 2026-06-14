@@ -150,7 +150,7 @@ YouTube watch page에는 `captionTracks`가 포함되어 있었지만, 추출한
 
 ### 상태
 
-미해결
+해결
 
 ### 문제
 
@@ -162,9 +162,11 @@ EC2 프리티어급 인스턴스에서 백엔드 Gradle 빌드와 프론트엔�
 
 ### 해결
 
-아직 해결되지 않았다. AWS 콘솔에서 EC2 인스턴스를 재부팅하거나 상태 검사를 확인한 뒤 SSH 접속을 복구해야 한다.
+AWS 콘솔에서 EC2 인스턴스를 재부팅한 뒤 SSH 접속이 복구되었다.
 
 2026-06-15에 PR #15를 `develop`에 병합한 뒤 SSH 접속을 재확인했지만 `Connection timed out during banner exchange`가 다시 발생했다.
+
+이후 다시 SSH 접속을 확인했을 때 정상 접속되었고, EC2 서버의 저장소를 최신 `develop`으로 fast-forward 동기화했다. 컨테이너는 실행 중이지 않았으며, Docker build cache가 약 257MB 남아 있었다.
 
 ### 재발 방지
 

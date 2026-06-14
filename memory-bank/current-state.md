@@ -29,17 +29,18 @@
 - [T-102] [ATS-4] Dockerfile, Docker Compose, Nginx 로컬 배포 구성 추가 및 검증 (done: 2026-06-14)
 - [T-103] [ATS-4] EC2 Amazon Linux 2023 서버에 Docker, Git, Docker Compose, Buildx 설치 (done: 2026-06-15)
 - [T-104] [ATS-4] PR #15 develop 병합 및 EC2 SSH 재확인 실패 기록 (done: 2026-06-15)
+- [T-105] [ATS-4] EC2 SSH 접속 복구 확인 및 서버 저장소를 최신 develop으로 동기화 (done: 2026-06-15)
 
 ## 열린 이슈
 
 - [T-069] [ATS-2] YouTube `timedtext` 자막 엔드포인트가 공개 자막이 있는 영상에서도 200 응답과 빈 본문을 반환해 URL 입력부터 요약 결과까지의 전체 성공 흐름 검증이 보류되었다.
 - [T-071/T-072] [ATS-4/ATS-5] AWS EC2 서버, 운영 도메인, GitHub Actions 배포 Secrets는 아직 확정되지 않았다.
-- [T-071] [ATS-4] EC2 서버에서 `docker compose up -d --build` 실행 중 SSH가 응답하지 않는 상태가 되어 EC2 재부팅 또는 복구가 필요하다. 2026-06-15 재확인에서도 `Connection timed out during banner exchange`가 발생했다.
+- [T-071] [ATS-4] EC2 SSH 접속은 복구되었고 서버 저장소는 최신 `develop`으로 동기화되었다. 다만 EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않기로 했으므로 실제 배포 적용은 [T-072] GitHub Actions + GHCR 구성 이후 진행한다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
 - [T-073] [ATS-6] `develop -> main` PR #1은 배포 준비 단계에서 다시 확인해야 한다.
 
 ## 다음 작업
 
-1. [T-071] [ATS-4] AWS 콘솔에서 EC2 인스턴스를 재부팅하거나 복구한 뒤 SSH 접속을 재확인한다.
-2. [T-072] [ATS-5] 서버 직접 빌드 대신 GitHub Actions + GHCR 기반 이미지 빌드/배포 구성을 진행한다.
+1. [T-072] [ATS-5] 서버 직접 빌드 대신 GitHub Actions + GHCR 기반 이미지 빌드/배포 구성을 진행한다.
+2. [T-071] [ATS-4] GHCR 이미지가 준비된 뒤 EC2에서 `docker compose pull`과 `docker compose up -d`로 배포를 적용한다.
 3. [T-073] [ATS-6] 운영 배포 검증 후 `develop -> main` PR #1을 검토한다.
