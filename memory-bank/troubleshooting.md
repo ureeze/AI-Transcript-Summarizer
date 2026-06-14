@@ -164,6 +164,8 @@ EC2 프리티어급 인스턴스에서 백엔드 Gradle 빌드와 프론트엔�
 
 아직 해결되지 않았다. AWS 콘솔에서 EC2 인스턴스를 재부팅하거나 상태 검사를 확인한 뒤 SSH 접속을 복구해야 한다.
 
+2026-06-15에 PR #15를 `develop`에 병합한 뒤 SSH 접속을 재확인했지만 `Connection timed out during banner exchange`가 다시 발생했다.
+
 ### 재발 방지
 
 EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 GHCR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
