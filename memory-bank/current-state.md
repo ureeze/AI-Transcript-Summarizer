@@ -39,13 +39,13 @@
 - [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 완료 (done: 2026-06-16)
 - [T-073] [ATS-6] `develop -> main` PR #1 검토 및 병합 완료 (done: 2026-06-16)
 - [T-110] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback 전략 결정 완료 (done: 2026-06-16)
+- [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI/API 구현 및 로컬 검증 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
-- [T-069] [ATS-2] YouTube `timedtext` 자막 엔드포인트가 공개 자막이 있는 영상에서도 200 응답과 빈 본문을 반환해 URL 입력부터 요약 결과까지의 전체 성공 흐름 검증이 보류되었다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
-- [T-111] [ATS-2] transcript 직접 입력 fallback 전략은 결정되었지만 실제 UI/API 구현은 아직 남아 있다.
+- [T-112] [ATS-2] transcript 직접 입력 fallback 구현은 로컬 검증까지 완료되었지만 운영 환경 반영과 실제 실패 시나리오 검증이 아직 남아 있다.
 
 ## 다음 작업
 
-1. [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI와 API 확장 방식을 구현한다.
+1. [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 병합 후 운영 환경에서 검증한다.
