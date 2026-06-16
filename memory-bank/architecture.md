@@ -69,6 +69,7 @@ Deployment
   - 프론트엔드 컨테이너 내부 정적 파일 서빙과 SPA fallback 설정
 - `src/App.tsx`
   - 유튜브 URL 입력
+  - 자막 추출 실패 시 transcript 직접 입력 fallback 노출
   - 클라이언트 검증
   - API 호출
   - 로딩/에러/결과 상태 표시
@@ -86,7 +87,7 @@ Deployment
 - `summary/controller/SummaryController`
   - `POST /api/summarize` 엔드포인트 제공
 - `summary/dto/SummarizeRequest`
-  - `youtubeUrl` 검증
+  - `youtubeUrl` 또는 `transcript` 입력 검증
 - `summary/dto/SummarizeResponse`
   - `summary`, `keyPoints`, `keywords` 응답
 - `summary/service/SummaryService`
@@ -150,7 +151,8 @@ Request:
 
 ```json
 {
-  "youtubeUrl": "https://www.youtube.com/watch?v=VIDEO_ID"
+  "youtubeUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+  "transcript": "optional direct transcript fallback"
 }
 ```
 

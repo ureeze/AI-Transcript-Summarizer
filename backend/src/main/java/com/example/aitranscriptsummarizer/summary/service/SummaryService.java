@@ -18,7 +18,9 @@ public class SummaryService {
     }
 
     public SummarizeResponse summarize(SummarizeRequest request) {
-        String transcript = youTubeTranscriptService.fetchTranscript(request.youtubeUrl());
+        String transcript = request.hasTranscript()
+                ? request.normalizedTranscript()
+                : youTubeTranscriptService.fetchTranscript(request.normalizedYoutubeUrl());
         return openAiSummaryClient.summarize(transcript);
     }
 }
