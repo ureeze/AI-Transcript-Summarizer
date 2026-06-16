@@ -20,7 +20,7 @@ external services/
 ```text
 GitHub
   - GitHub Actions에서 frontend/backend Docker 이미지를 빌드한다.
-  - 빌드된 이미지를 GHCR에 push한다.
+  - 빌드된 이미지를 Amazon ECR에 push한다.
   - AWS EC2 서버에 접속해 docker compose pull/up으로 배포한다.
 
 AWS EC2
@@ -52,7 +52,7 @@ Deployment
   - AWS EC2는 운영 서버 역할을 가진다.
   - Nginx는 reverse proxy와 라우팅 책임을 가진다.
   - Docker Compose는 서버 내 컨테이너 실행 구성을 관리한다.
-  - GitHub Actions와 GHCR은 이미지 빌드, 저장, 배포 흐름을 담당한다.
+  - GitHub Actions와 Amazon ECR은 이미지 빌드, 저장, 배포 흐름을 담당한다.
 ```
 
 ## 모듈 구성
@@ -127,7 +127,7 @@ Deployment
 
 1. `develop` 또는 배포 대상 브랜치의 변경사항이 GitHub에 push된다.
 2. GitHub Actions가 frontend/backend Docker 이미지를 빌드한다.
-3. GitHub Actions가 이미지를 GHCR에 push한다.
+3. GitHub Actions가 이미지를 Amazon ECR에 push한다.
 4. GitHub Actions가 AWS EC2에 SSH로 접속한다.
 5. EC2에서 Docker Compose가 최신 이미지를 pull하고 컨테이너를 재시작한다.
 6. 사용자는 Nginx를 통해 운영 서비스에 접속한다.

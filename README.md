@@ -71,4 +71,33 @@ docker compose up --build
 
 1. Docker Compose 기반 로컬 컨테이너 실행 흐름을 검증한다.
 2. AWS EC2 서버에 Docker와 Docker Compose 실행 환경을 준비한다.
-3. GitHub Actions와 GHCR 기반 배포 자동화를 구성한다.
+3. GitHub Actions와 ECR 기반 배포 자동화를 구성한다.
+
+## GitHub Actions + ECR 배포
+
+`develop` 브랜치에 push되거나 수동 실행하면 `.github/workflows/deploy.yml`이 frontend/backend Docker 이미지를 Amazon ECR에 push한 뒤 EC2에서 최신 이미지를 pull해 재시작한다.
+
+GitHub repository secrets:
+
+```text
+AWS_ACCESS_KEY_ID=AWS access key
+AWS_SECRET_ACCESS_KEY=AWS secret access key
+AWS_REGION=ap-northeast-2
+EC2_HOST=15.164.171.119
+EC2_USER=ec2-user
+EC2_SSH_KEY=private key content
+OPENAI_API_KEY=OpenAI API key
+APP_CORS_ALLOWED_ORIGIN=http://15.164.171.119
+EC2_APP_DIR=/home/ec2-user/apps/AI-Transcript-Summarizer
+```
+
+`EC2_APP_DIR`은 선택값이며 생략 시 `/home/ec2-user/apps/AI-Transcript-Summarizer`를 사용한다. ECR repository는 workflow 실행 전에 AWS에 생성되어 있어야 한다.
+
+ECR repositories:
+
+```text
+ai-transcript-summarizer-frontend
+ai-transcript-summarizer-backend
+```
+
+EC2에서는 직접 Docker 이미지를 빌드하지 않고 `docker compose pull`과 `docker compose up -d --no-build`만 수행한다.
