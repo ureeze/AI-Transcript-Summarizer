@@ -5,9 +5,11 @@
 ## 구조
 
 ```text
+docs/         PRD 문서
 frontend/     React + Vite + TypeScript + Tailwind CSS
 backend/      Spring Boot 3 + Java 21 + Gradle
-memory-bank/  프로젝트 상태와 의사결정 기록
+deploy/       Docker Compose + Nginx 배포 구성
+memory-bank/  프로젝트 장기 기억과 작업 상태
 ```
 
 ## 로컬 실행
@@ -46,8 +48,56 @@ API Key는 백엔드 환경변수로만 설정하며 프론트엔드에 노출�
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
+Docker Compose 배포에서는 프론트엔드를 같은 origin에서 제공하므로 `VITE_API_BASE_URL`을 빈 값으로 빌드해 `/api` 경로를 사용한다.
+
+## Docker Compose 실행
+
+```bash
+cd deploy
+Copy-Item .env.example .env
+```
+
+`deploy/.env`의 `OPENAI_API_KEY` 값을 설정한 뒤 실행한다.
+
+```bash
+docker compose up --build
+```
+
+서비스는 Nginx를 통해 `http://localhost`에서 접근한다.
+
+`docker compose config`는 환경변수 값을 출력할 수 있으므로 실제 API Key가 설정된 터미널에서는 실행 결과를 공유하지 않는다.
+
 ## 다음 단계
 
-1. 로컬에서 백엔드와 프론트엔드를 함께 실행해 전체 흐름을 검증한다.
-2. Render와 Vercel 배포 환경변수를 설정한다.
-3. 운영 URL에서 실제 유튜브 URL 요약 흐름을 확인한다.
+1. Docker Compose 기반 로컬 컨테이너 실행 흐름을 검증한다.
+2. AWS EC2 서버에 Docker와 Docker Compose 실행 환경을 준비한다.
+3. GitHub Actions와 ECR 기반 배포 자동화를 구성한다.
+
+## GitHub Actions + ECR 배포
+
+`develop` 브랜치에 push되거나 수동 실행하면 `.github/workflows/deploy.yml`이 frontend/backend Docker 이미지를 Amazon ECR에 push한 뒤 EC2에서 최신 이미지를 pull해 재시작한다.
+
+GitHub repository secrets:
+
+```text
+AWS_ACCESS_KEY_ID=AWS access key
+AWS_SECRET_ACCESS_KEY=AWS secret access key
+AWS_REGION=ap-northeast-2
+EC2_HOST=15.164.171.119
+EC2_USER=ec2-user
+EC2_SSH_KEY=private key content
+OPENAI_API_KEY=OpenAI API key
+APP_CORS_ALLOWED_ORIGIN=http://15.164.171.119
+EC2_APP_DIR=/home/ec2-user/apps/AI-Transcript-Summarizer
+```
+
+`EC2_APP_DIR`은 선택값이며 생략 시 `/home/ec2-user/apps/AI-Transcript-Summarizer`를 사용한다. ECR repository는 workflow 실행 전에 AWS에 생성되어 있어야 한다.
+
+ECR repositories:
+
+```text
+ai-transcript-summarizer-frontend
+ai-transcript-summarizer-backend
+```
+
+EC2에서는 직접 Docker 이미지를 빌드하지 않고 `docker compose pull`과 `docker compose up -d --no-build`만 수행한다.
