@@ -197,3 +197,31 @@ AWS 콘솔과 GitHub repository Secrets에서 필요한 배포 설정을 수동�
 ### 재발 방지
 
 AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크리스트로 확인한다. 특히 `AWS_REGION`, AWS 인증 정보, EC2 SSH 접속 정보, `OPENAI_API_KEY`, `APP_CORS_ALLOWED_ORIGIN` 누락 여부를 먼저 확인한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.
+
+---
+
+## 2026-06-16 - 운영 환경 direct transcript fallback 요약 실패
+
+### 상태
+
+미해결
+
+### 문제
+
+`develop` 최신 커밋 `f63fb057a058fd4f174849a8fb04fc02b29287d0`가 EC2에 배포된 뒤 운영 환경을 검증했을 때, 루트 페이지 `GET /`는 200으로 응답했고 YouTube URL 실패 케이스는 `"이 영상의 자막을 가져올 수 없습니다."` 메시지로 정상 동작했다. 그러나 direct transcript 요청은 `"요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."` 메시지와 함께 502 응답을 반환했다.
+
+### 원인
+
+정확한 원인은 아직 확인되지 않았다. 다만 운영 서버의 Git checkout과 frontend/backend 컨테이너 이미지는 모두 최신 `develop` SHA로 갱신되었고, backend 컨테이너의 `OPENAI_API_KEY`는 비어 있지 않았다. EC2 호스트에서 `https://api.openai.com/v1/models`에 인증 없이 요청했을 때 401이 반환되어 외부 네트워크 연결 자체는 가능한 상태였다. 따라서 현재는 배포 누락보다는 OpenAI 인증값 유효성, 모델 접근 권한, 또는 운영 환경에서의 실제 OpenAI 요청 거절 가능성을 우선 의심한다.
+
+### 해결
+
+아직 해결되지 않았다. 운영 환경에서 direct transcript fallback 요청 시 OpenAI API 실제 응답 상태와 오류 본문을 비밀값 노출 없이 확인할 수 있도록 백엔드 로그 또는 안전한 진단 경로를 추가하고, 필요하면 `OPENAI_API_KEY`와 모델 접근 권한을 재검증해야 한다.
+
+### 재발 방지
+
+운영 배포 후에는 `GET /` 확인만으로 끝내지 않고 다음 smoke test를 함께 수행한다.
+
+- YouTube URL 실패 응답 확인
+- direct transcript fallback 요청 확인
+- 성공 요약 응답 확인
