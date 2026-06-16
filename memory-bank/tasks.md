@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-110] [ATS-2] YouTube 비공식 자막 추출 실패에 대비한 대체 전략을 검토한다.
+- [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI와 API 확장 방식을 구현한다.
 
 ## In Progress
 
@@ -122,3 +122,4 @@
 - [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용 (done: 2026-06-16)
 - [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 (done: 2026-06-16)
 - [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합 (done: 2026-06-16)
+- [T-110] [ATS-2] YouTube 비공식 자막 추출 실패 시 transcript 직접 입력 fallback 전략을 결정한다. (done: 2026-06-16)
