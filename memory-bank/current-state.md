@@ -6,7 +6,7 @@
 
 ## 진행 중 작업
 
-- [T-117] [ATS-5] ECR lifecycle policy를 backend/frontend에 적용한 뒤, 실제 재배포 1회를 발생시켜 최신 tagged 이미지 1개만 남는지 검증 중이다.
+- 없음
 
 ## 최근 완료 작업
 
@@ -49,7 +49,9 @@
 ## 열린 이슈
 
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
+- [T-117] EC2에서 `aws ecr describe-images` 실행 시 `Unable to locate credentials`가 발생해 ECR lifecycle policy 자동 삭제 결과를 직접 조회하지 못하고 있다. 배포 자체는 SHA `c887811e09fe96e21492e317eb2271eb7db8ac56` 기준으로 성공했다.
 
 ## 다음 작업
 
-1. 없음 (T-117 검증 진행 중)
+1. [T-118] [ATS-5] AWS Console에서 backend/frontend ECR 저장소에 최신 tagged 이미지만 남았는지 최종 확인한다.
+2. [T-117] 필요하면 EC2에 ECR 조회 가능한 IAM Role 또는 AWS credential을 부여한 뒤 CLI로 lifecycle policy 결과를 재검증한다.

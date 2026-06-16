@@ -1,17 +1,11 @@
 # Tasks
 
 ## Next
-
-- 없음 (MVP 핵심 목표 달성)
-
+- [T-118] [ATS-5] Verify the ECR lifecycle policy result through AWS Console or ECR read access.
 ## In Progress
-
-- [T-117] [ATS-5] ECR lifecycle policy가 최신 1개만 유지하도록 실제 재배포 후 자동 정리되는지 검증한다.
-
-## Blocked
-
 - 없음
-
+## Blocked
+- [T-117] [ATS-5] ECR lifecycle validation deployment succeeded, but EC2 could not directly query backend/frontend cleanup results because `aws ecr describe-images` returned `Unable to locate credentials`.
 ## Done
 
 - [T-001] 초기 PRD 작성 (done: 2026-06-05)
