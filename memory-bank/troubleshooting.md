@@ -204,7 +204,7 @@ AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크
 
 ### 상태
 
-미해결
+해결
 
 ### 문제
 
@@ -212,15 +212,15 @@ AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크
 
 ### 원인
 
-정확한 원인은 아직 확인되지 않았다. 다만 운영 서버의 Git checkout과 frontend/backend 컨테이너 이미지는 모두 최신 `develop` SHA로 갱신되었고, backend 컨테이너의 `OPENAI_API_KEY`는 비어 있지 않았다. EC2 호스트에서 `https://api.openai.com/v1/models`에 인증 없이 요청했을 때 401이 반환되어 외부 네트워크 연결 자체는 가능한 상태였다. 따라서 현재는 배포 누락보다는 OpenAI 인증값 유효성, 모델 접근 권한, 또는 운영 환경에서의 실제 OpenAI 요청 거절 가능성을 우선 의심한다.
+운영 서버의 Git checkout과 frontend/backend 컨테이너 이미지는 모두 최신 `develop` SHA로 갱신되어 있었지만, EC2의 `deploy/.env`에 들어 있던 `OPENAI_API_KEY` 값이 로컬 정상 키와 달랐다. 이 값으로 direct transcript 요청을 수행하면 OpenAI가 인증을 거절해 백엔드가 `"요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."`를 반환했다.
 
 ### 해결
 
-아직 해결되지 않았다. 운영 환경에서 direct transcript fallback 요청 시 OpenAI API 실제 응답 상태와 오류 본문을 비밀값 노출 없이 확인할 수 있도록 백엔드 로그 또는 안전한 진단 경로를 추가하고, 필요하면 `OPENAI_API_KEY`와 모델 접근 권한을 재검증해야 한다.
+EC2 서버의 `/home/ec2-user/apps/AI-Transcript-Summarizer/deploy/.env`에 로컬 PowerShell의 정상 `OPENAI_API_KEY`를 다시 반영하고 backend 컨테이너를 `docker compose up -d --force-recreate backend`로 재생성했다. 이후 direct transcript 요청이 200 응답과 요약 결과를 정상 반환하는 것을 확인했다.
 
 ### 재발 방지
 
-운영 배포 후에는 `GET /` 확인만으로 끝내지 않고 다음 smoke test를 함께 수행한다.
+운영 배포 후에는 `GET /` 확인만으로 끝내지 않고 다음 smoke test를 함께 수행한다. 또한 GitHub repository `OPENAI_API_KEY` Secret과 EC2 `deploy/.env` 값이 같은지 함께 관리해야 한다.
 
 - YouTube URL 실패 응답 확인
 - direct transcript fallback 요청 확인

@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인을 확인하고 수정한다.
+- [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret을 현재 정상 키와 동기화하고 재배포 시에도 direct transcript fallback이 유지되는지 확인한다.
 
 ## In Progress
 
@@ -10,7 +10,7 @@
 
 ## Blocked
 
-- [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 배포 후 운영 환경에서 검증했지만 direct transcript 요청이 `"요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."`로 실패해 검증 보류
+- 없음
 
 ## Done
 
@@ -124,3 +124,5 @@
 - [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합 (done: 2026-06-16)
 - [T-110] [ATS-2] YouTube 비공식 자막 추출 실패 시 transcript 직접 입력 fallback 전략을 결정한다. (done: 2026-06-16)
 - [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI와 API 확장 방식을 구현한다. (done: 2026-06-16)
+- [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 배포 후 운영 환경에서 검증한다. (done: 2026-06-16)
+- [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인을 확인하고 수정한다. (done: 2026-06-16)

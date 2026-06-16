@@ -40,12 +40,14 @@
 - [T-073] [ATS-6] `develop -> main` PR #1 검토 및 병합 완료 (done: 2026-06-16)
 - [T-110] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback 전략 결정 완료 (done: 2026-06-16)
 - [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI/API 구현 및 로컬 검증 완료 (done: 2026-06-16)
+- [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 배포 후 운영 환경에서 검증 완료 (done: 2026-06-16)
+- [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인 확인 및 EC2 `OPENAI_API_KEY` 교정 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
-- [T-112] [ATS-2] `develop` 최신 배포는 적용되었고 URL 기반 실패 응답도 정상 확인됐지만, direct transcript 요청은 운영 환경에서 `"요약을 생성하지 못했습니다. 잠시 후 다시 시도해주세요."` 메시지와 함께 502로 실패한다.
+- [T-114] [ATS-5] EC2 `deploy/.env`의 `OPENAI_API_KEY`는 정상 값으로 교정되었지만, GitHub repository `OPENAI_API_KEY` Secret이 같은 값인지 아직 확인되지 않았다. 다음 `develop` 배포 시 다시 잘못된 키가 반영될 수 있다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
 
 ## 다음 작업
 
-1. [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인을 확인하고 수정한다.
+1. [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret을 현재 정상 키와 동기화하고 재배포 시에도 direct transcript fallback이 유지되는지 확인한다.
