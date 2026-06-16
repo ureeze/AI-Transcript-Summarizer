@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-115] [ATS-5] deploy workflow의 nginx 재생성 변경이 `develop` 배포에서도 502 재발을 막는지 최종 검증한다.
+- [T-116] [ATS-6] 최신 `develop` 기준 운영 검증 결과를 바탕으로 `develop -> main` 배포 PR을 검토하고 병합 여부를 결정한다.
 
 ## In Progress
 
@@ -127,3 +127,4 @@
 - [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 병합 후 운영 환경에서 검증한다. (done: 2026-06-16)
 - [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인을 확인하고 수정한다. (done: 2026-06-16)
 - [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret 수정 반영 여부를 재배포로 검증하고 direct transcript fallback 유지 여부를 확인한다. (done: 2026-06-16)
+- [T-115] [ATS-5] deploy workflow의 nginx 재생성 변경이 `develop` 배포에서도 502 재발을 막는지 최종 검증한다. (done: 2026-06-16)
