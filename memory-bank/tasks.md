@@ -1,12 +1,14 @@
 # Tasks
 
 ## Next
-- [T-118] [ATS-5] Verify the ECR lifecycle policy result through AWS Console or ECR read access.
+- [T-119] [ATS-5] Investigate why the ECR lifecycle policy keeps three tagged image indexes instead of only the newest one.
 ## In Progress
 - 없음
 ## Blocked
 - [T-117] [ATS-5] ECR lifecycle validation deployment succeeded, but EC2 could not directly query backend/frontend cleanup results because `aws ecr describe-images` returned `Unable to locate credentials`.
 ## Done
+
+- [T-118] [ATS-5] Verify the ECR lifecycle policy result through AWS Console or ECR read access. (done: 2026-06-16)
 
 - [T-001] 초기 PRD 작성 (done: 2026-06-05)
 - [T-002] 초기 Memory Bank 구성 (done: 2026-06-05)

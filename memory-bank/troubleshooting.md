@@ -221,3 +221,27 @@ deploy workflow가 frontend, backend 컨테이너를 재생성한 뒤 nginx 컨�
 ### 재발 방지
 
 앱 컨테이너를 재생성하는 배포에서는 nginx도 함께 재생성하거나, upstream 재해석이 가능한 방식으로 reverse proxy를 구성한다. `develop` 배포 재검증에서 `/` 200 응답과 direct transcript fallback 200 응답을 확인했으므로, 이후에도 배포 후 동일 smoke test를 기본 절차로 유지한다.
+
+---
+
+## 2026-06-16 - ECR lifecycle policy가 tagged image index 1개만 남기지 않음
+
+### 상태
+
+관찰 중
+
+### 문제
+
+backend/frontend ECR 저장소에 lifecycle policy를 최신 1개 유지 목적으로 적용한 뒤 재배포를 수행했지만, AWS Console 확인 결과 두 저장소 모두 tagged image index가 3개씩 남아 있었다.
+
+### 원인
+
+아직 확정되지 않았다. 정책 조건이 현재 ECR 이미지 구조와 정확히 맞지 않거나, lifecycle policy 실행이 즉시 반영되지 않았을 가능성이 있다.
+
+### 해결
+
+2026-06-16 기준으로는 배포 성공과 현재 잔존 개수만 확인했다. 후속 작업에서 lifecycle policy 설정값, 태그 조건, 실행 지연 여부를 다시 점검해야 한다.
+
+### 재발 방지
+
+ECR lifecycle policy는 저장 직후 바로 기대 결과가 반영된다고 가정하지 않는다. 정책 적용 후에는 AWS Console 또는 CLI로 실제 남은 tagged image index 개수를 확인하고, 정책 문구와 실제 이미지 구조가 일치하는지 검토한다.
