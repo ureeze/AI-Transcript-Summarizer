@@ -6,7 +6,7 @@
 
 ## In Progress
 
-- 없음
+- [T-117] [ATS-5] ECR lifecycle policy가 최신 1개만 유지하도록 실제 재배포 후 자동 정리되는지 검증한다.
 
 ## Blocked
 
