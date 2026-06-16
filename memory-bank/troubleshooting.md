@@ -102,7 +102,7 @@ Spring Bean에 생성자가 여러 개 필요한 경우 운영 DI 생성자에 `
 
 ### 상태
 
-관찰 중
+해결
 
 ### 문제
 
@@ -220,4 +220,4 @@ deploy workflow가 frontend, backend 컨테이너를 재생성한 뒤 nginx 컨�
 
 ### 재발 방지
 
-앱 컨테이너를 재생성하는 배포에서는 nginx도 함께 재생성하거나, upstream 재해석이 가능한 방식으로 reverse proxy를 구성한다. 이번 수정이 `develop` 배포에서 실제로 502 재발을 막는지는 후속 작업 [T-115]로 다시 검증한다.
+앱 컨테이너를 재생성하는 배포에서는 nginx도 함께 재생성하거나, upstream 재해석이 가능한 방식으로 reverse proxy를 구성한다. `develop` 배포 재검증에서 `/` 200 응답과 direct transcript fallback 200 응답을 확인했으므로, 이후에도 배포 후 동일 smoke test를 기본 절차로 유지한다.
