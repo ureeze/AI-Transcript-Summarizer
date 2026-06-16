@@ -44,6 +44,7 @@
 - [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인 확인 및 EC2 `OPENAI_API_KEY` 교정 완료 (done: 2026-06-16)
 - [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret 수정이 재배포에 반영되는지 검증 완료, Secret 값 정상 반영 확인 및 운영 direct transcript fallback 복구 완료 (done: 2026-06-16)
 - [T-115] [ATS-5] 수정된 deploy workflow가 `develop` 배포에서도 nginx 502 재발을 막는지 검증 완료, 운영 URL 200 및 direct transcript fallback 200 확인 (done: 2026-06-16)
+- [T-116] [ATS-6] 최신 `develop` 기준 운영 검증 결과를 바탕으로 `develop -> main` 배포 PR #26 검토 및 병합 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
@@ -51,4 +52,4 @@
 
 ## 다음 작업
 
-1. [T-116] [ATS-6] 최신 `develop` 기준 운영 검증 결과를 바탕으로 `develop -> main` 배포 PR을 검토하고 병합 여부를 결정한다.
+1. 없음 (MVP 핵심 목표 달성)
