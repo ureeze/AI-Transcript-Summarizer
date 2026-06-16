@@ -170,4 +170,28 @@ AWS 콘솔에서 EC2 인스턴스를 재부팅한 뒤 SSH 접속이 복구되었
 
 ### 재발 방지
 
-EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 GHCR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
+EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 Amazon ECR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
+
+---
+
+## 2026-06-16 - ECR 배포 검증을 위한 AWS 인증 정보 부재
+
+### 상태
+
+미해결
+
+### 문제
+
+GitHub Actions + Amazon ECR 기반 배포 workflow를 실제 실행하려면 ECR repository 생성, AWS 인증 정보, GitHub Secrets 등록이 필요하지만 현재 Codex 세션에서는 해당 외부 설정을 완료할 수 없다.
+
+### 원인
+
+로컬 환경에는 `aws` CLI와 `gh` CLI가 설치되어 있지 않다. EC2에는 AWS CLI가 설치되어 있지만 `aws sts get-caller-identity` 실행 시 `Unable to locate credentials`가 발생해 AWS credentials 또는 IAM Role이 설정되어 있지 않음을 확인했다. 또한 현재 GitHub 커넥터에는 repository secrets 생성/수정 도구가 없다.
+
+### 해결
+
+아직 해결되지 않았다. AWS 콘솔에서 ECR repository 2개를 생성하고, GitHub repository Secrets에 AWS 인증 정보, EC2 접속 정보, OpenAI API Key를 등록해야 한다.
+
+### 재발 방지
+
+AWS 기반 CI/CD 검증 전에 AWS CLI 인증 방식 또는 EC2 IAM Role, GitHub Secrets 등록 권한을 먼저 준비한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.
