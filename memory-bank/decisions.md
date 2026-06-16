@@ -576,7 +576,7 @@ Jira 이슈 키를 Jira, GitHub, Codex Memory Bank를 연결하는 공통 작업
 
 ### 상태
 
-채택 (Approved)
+대체됨 (Superseded)
 
 ### 결정
 
@@ -635,3 +635,36 @@ AWS EC2 단일 서버 배포를 준비하려면 로컬에서 먼저 서버와 �
 - `README.md`
 - `memory-bank/architecture.md`
 - `memory-bank/tech-stack.md`
+
+## ADR-017 AWS ECR 기반 컨테이너 이미지 저장소 채택
+
+### 날짜
+
+2026-06-16
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+AWS EC2 기반 배포에서 컨테이너 이미지 저장소를 GHCR에서 Amazon ECR로 변경한다.
+
+### 이유
+
+운영 서버가 AWS EC2에 있으므로 이미지 저장소도 AWS ECR로 맞추면 IAM, ECR, EC2를 함께 다루는 AWS 중심 배포 흐름을 연습할 수 있다. 사용자는 실무형 AWS 배포 경험을 원하며, ECR은 AWS 인프라와 권한 모델에 자연스럽게 연결된다.
+
+### 고려한 대안
+
+- GHCR 유지
+- Docker Hub 사용
+- Amazon ECR 사용
+
+### 영향 범위
+
+- `.github/workflows/deploy.yml`
+- `README.md`
+- `memory-bank/architecture.md`
+- `memory-bank/tech-stack.md`
+- `memory-bank/current-state.md`
+- `memory-bank/tasks.md`

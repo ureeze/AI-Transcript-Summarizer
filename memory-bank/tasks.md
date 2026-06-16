@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-106] [ATS-5] GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 및 결과 확인
+- [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 및 결과 확인
 - [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합
 
 ## In Progress
@@ -12,7 +12,7 @@
 ## Blocked
 
 - [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
-- [T-071] [ATS-4] AWS EC2 서버 Docker Compose 배포 적용은 서버 직접 빌드 재시도 없이 GitHub Actions + GHCR 구성 전까지 대기
+- [T-071] [ATS-4] AWS EC2 서버 Docker Compose 배포 적용은 서버 직접 빌드 재시도 없이 GitHub Actions + ECR 구성 전까지 대기
 - [T-075] [ATS-4/ATS-5] 배포 검증은 AWS EC2와 GitHub Actions 배포 환경 설정 전까지 대기
 
 ## Done
@@ -118,4 +118,5 @@
 - [T-104] [ATS-4] PR #15 develop 병합 및 EC2 SSH 재확인 실패 기록 (done: 2026-06-15)
 - [T-105] [ATS-4] EC2 SSH 접속 복구 확인 및 서버 저장소를 최신 develop으로 동기화 (done: 2026-06-15)
 - [T-107] [ATS-4] PR #16 develop 병합 및 로컬 develop 동기화 (done: 2026-06-15)
-- [T-072] [ATS-5] GitHub Actions + GHCR 기반 CI/CD 구성 (done: 2026-06-15)
+- [T-072] [ATS-5] GitHub Actions + ECR 기반 CI/CD 구성 (done: 2026-06-15)
+- [T-108] [ATS-5] GitHub Actions 이미지 저장소 구성을 GHCR에서 ECR로 변경 (done: 2026-06-16)
