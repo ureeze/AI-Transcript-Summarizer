@@ -33,17 +33,17 @@
 - [T-107] [ATS-4] PR #16 develop 병합 및 로컬 develop 동기화 (done: 2026-06-15)
 - [T-072] [ATS-5] GitHub Actions + ECR 기반 CI/CD 구성 (done: 2026-06-15)
 - [T-108] [ATS-5] GitHub Actions 이미지 저장소 구성을 GHCR에서 ECR로 변경 (done: 2026-06-16)
+- [T-109] [ATS-5] PR #17 develop 병합 및 ECR/Secrets 설정 가능 여부 확인 (done: 2026-06-16)
+- [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 성공 (done: 2026-06-16)
+- [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용 완료 (done: 2026-06-16)
+- [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
 - [T-069] [ATS-2] YouTube `timedtext` 자막 엔드포인트가 공개 자막이 있는 영상에서도 200 응답과 빈 본문을 반환해 URL 입력부터 요약 결과까지의 전체 성공 흐름 검증이 보류되었다.
-- [T-106] [ATS-5] GitHub Actions 배포 workflow 실행에 필요한 ECR repository 생성, GitHub Secrets 등록, 첫 수동 실행 검증이 아직 남아 있다.
-- [T-071] [ATS-4] EC2 SSH 접속은 복구되었고 서버 저장소는 최신 `develop`으로 동기화되었다. 다만 EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않기로 했으므로 실제 배포 적용은 [T-072] GitHub Actions + ECR 구성 이후 진행한다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
 - [T-073] [ATS-6] `develop -> main` PR #1은 배포 준비 단계에서 다시 확인해야 한다.
 
 ## 다음 작업
 
-1. [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow를 수동 실행하고 결과를 확인한다.
-2. [T-071] [ATS-4] ECR 이미지가 준비된 뒤 EC2에서 `docker compose pull`과 `docker compose up -d`로 배포를 적용한다.
-3. [T-073] [ATS-6] 운영 배포 검증 후 `develop -> main` PR #1을 검토한다.
+1. [T-073] [ATS-6] 운영 배포 검증 결과를 기준으로 `develop -> main` PR #1을 검토한다.

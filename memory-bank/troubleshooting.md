@@ -170,4 +170,30 @@ AWS 콘솔에서 EC2 인스턴스를 재부팅한 뒤 SSH 접속이 복구되었
 
 ### 재발 방지
 
-EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 GHCR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
+EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다. 후속 작업에서는 GitHub Actions에서 이미지를 빌드해 Amazon ECR에 push하고, EC2에서는 `docker compose pull`과 `docker compose up -d`만 수행하는 방식으로 전환한다.
+
+---
+
+## 2026-06-16 - ECR 배포 검증을 위한 AWS 인증 정보 부재
+
+### 상태
+
+해결
+
+### 문제
+
+GitHub Actions + Amazon ECR 기반 배포 workflow를 실제 실행하려면 ECR repository 생성, AWS 인증 정보, GitHub Secrets 등록이 필요하지만 현재 Codex 세션에서는 해당 외부 설정을 완료할 수 없다.
+
+### 원인
+
+로컬 환경에는 `aws` CLI와 `gh` CLI가 설치되어 있지 않다. EC2에는 AWS CLI가 설치되어 있지만 `aws sts get-caller-identity` 실행 시 `Unable to locate credentials`가 발생해 AWS credentials 또는 IAM Role이 설정되어 있지 않음을 확인했다. 또한 현재 GitHub 커넥터에는 repository secrets 생성/수정 도구가 없다.
+
+### 해결
+
+AWS 콘솔과 GitHub repository Secrets에서 필요한 배포 설정을 수동으로 등록했다. 첫 GitHub Actions 실행은 `AWS_REGION` Secret 누락으로 `Input required and not supplied: aws-region` 오류가 발생했지만, `AWS_REGION=ap-northeast-2`를 추가한 뒤 재실행해 `Build and push images`와 `Deploy to EC2` job이 모두 성공했다.
+
+배포 후 사용자가 EC2 public IP 기준으로 프론트엔드 화면 표시, YouTube URL 입력, 요약 요청 시 백엔드 API 호출, 실패 응답 시 에러 메시지 표시를 확인했다.
+
+### 재발 방지
+
+AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크리스트로 확인한다. 특히 `AWS_REGION`, AWS 인증 정보, EC2 SSH 접속 정보, `OPENAI_API_KEY`, `APP_CORS_ALLOWED_ORIGIN` 누락 여부를 먼저 확인한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.
