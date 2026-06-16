@@ -178,7 +178,7 @@ EC2 프리티어 서버에서 직접 Docker 이미지를 빌드하지 않는다.
 
 ### 상태
 
-미해결
+해결
 
 ### 문제
 
@@ -190,8 +190,10 @@ GitHub Actions + Amazon ECR 기반 배포 workflow를 실제 실행하려면 ECR
 
 ### 해결
 
-아직 해결되지 않았다. AWS 콘솔에서 ECR repository 2개를 생성하고, GitHub repository Secrets에 AWS 인증 정보, EC2 접속 정보, OpenAI API Key를 등록해야 한다.
+AWS 콘솔과 GitHub repository Secrets에서 필요한 배포 설정을 수동으로 등록했다. 첫 GitHub Actions 실행은 `AWS_REGION` Secret 누락으로 `Input required and not supplied: aws-region` 오류가 발생했지만, `AWS_REGION=ap-northeast-2`를 추가한 뒤 재실행해 `Build and push images`와 `Deploy to EC2` job이 모두 성공했다.
+
+배포 후 사용자가 EC2 public IP 기준으로 프론트엔드 화면 표시, YouTube URL 입력, 요약 요청 시 백엔드 API 호출, 실패 응답 시 에러 메시지 표시를 확인했다.
 
 ### 재발 방지
 
-AWS 기반 CI/CD 검증 전에 AWS CLI 인증 방식 또는 EC2 IAM Role, GitHub Secrets 등록 권한을 먼저 준비한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.
+AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크리스트로 확인한다. 특히 `AWS_REGION`, AWS 인증 정보, EC2 SSH 접속 정보, `OPENAI_API_KEY`, `APP_CORS_ALLOWED_ORIGIN` 누락 여부를 먼저 확인한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.

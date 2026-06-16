@@ -11,9 +11,6 @@
 ## Blocked
 
 - [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
-- [T-071] [ATS-4] AWS EC2 서버 Docker Compose 배포 적용은 서버 직접 빌드 재시도 없이 GitHub Actions + ECR 구성 전까지 대기
-- [T-075] [ATS-4/ATS-5] 배포 검증은 AWS EC2와 GitHub Actions 배포 환경 설정 전까지 대기
-- [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행은 AWS 인증 정보 또는 EC2 IAM Role, GitHub Secrets 등록 전까지 대기
 
 ## Done
 
@@ -121,3 +118,6 @@
 - [T-072] [ATS-5] GitHub Actions + ECR 기반 CI/CD 구성 (done: 2026-06-15)
 - [T-108] [ATS-5] GitHub Actions 이미지 저장소 구성을 GHCR에서 ECR로 변경 (done: 2026-06-16)
 - [T-109] [ATS-5] PR #17 develop 병합 및 ECR/Secrets 설정 가능 여부 확인 (done: 2026-06-16)
+- [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 (done: 2026-06-16)
+- [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용 (done: 2026-06-16)
+- [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 (done: 2026-06-16)
