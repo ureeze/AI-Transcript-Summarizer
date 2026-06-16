@@ -107,4 +107,4 @@ jobs:
           EOF
 
           ssh -i ~/.ssh/ec2_key -o StrictHostKeyChecking=accept-new "$EC2_USER@$EC2_HOST" \
-            "chmod 600 '$EC2_APP_DIR/deploy/.env' && cd '$EC2_APP_DIR/deploy' && docker compose pull && docker compose up -d --no-build && docker image prune -f"
+            "chmod 600 '$EC2_APP_DIR/deploy/.env' && cd '$EC2_APP_DIR/deploy' && docker compose pull frontend backend && docker compose up -d --no-build --force-recreate nginx frontend backend && docker image prune -f"
