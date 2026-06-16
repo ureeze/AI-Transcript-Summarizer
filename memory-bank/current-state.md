@@ -2,7 +2,7 @@
 
 ## 현재 마일스톤
 
-[ATS-1] Prepare MVP for Production Deployment 완료
+[ATS-1] Prepare MVP for Production Deployment 진행 중
 
 ## 진행 중 작업
 
@@ -10,6 +10,8 @@
 
 ## 최근 완료 작업
 
+- [T-122] Memory Bank 작업 문구는 한국어로 작성한다는 규칙을 반영하고 `tasks.md`의 최근 영어 작업 항목을 한국어로 정리했다. (done: 2026-06-17)
+- [T-121] Jira 작업 보드를 실제 프로젝트 상태에 맞게 정리했다. `ATS-2`, `ATS-4`, `ATS-5`, `ATS-6`을 완료로 맞추고, 후속 검증 작업 `ATS-9`를 생성했으며 에픽 `ATS-1`을 진행 중으로 갱신했다. (done: 2026-06-17)
 - [T-119] [ATS-5] AWS ECR 공식 문서를 기준으로 lifecycle policy는 조건 충족 후 최대 24시간 내에 적용될 수 있고, manifest list(image index) 참조 관계도 고려해야 함을 확인했다. 현재 3개 잔존은 즉시 실패 증거로 단정할 수 없다. (done: 2026-06-16)
 - [T-118] [ATS-5] AWS Console 확인 결과 backend/frontend ECR 저장소 모두 tagged image index가 3개씩 남아 있음을 확인했다. lifecycle policy는 아직 기대한 결과를 만들지 못했다. (done: 2026-06-16)
 - [T-068] PR #7 `docs: Git PR 운영 규칙 보강` develop 병합 및 로컬 develop 동기화 (done: 2026-06-11)
@@ -51,10 +53,10 @@
 ## 열린 이슈
 
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
-- [T-117] EC2에서 `aws ecr describe-images` 실행 시 `Unable to locate credentials`가 발생해 ECR lifecycle policy 자동 삭제 결과를 직접 조회하지 못하고 있다. 배포 자체는 SHA `c887811e09fe96e21492e317eb2271eb7db8ac56` 기준으로 성공했다.
-- [T-120] AWS ECR 공식 문서상 lifecycle policy는 조건 충족 후 최대 24시간 내에 적용될 수 있다. 따라서 현재 잔존 3개는 즉시 실패로 단정하지 않고, 24시간 경과 후 재확인이 필요하다.
+- [T-117] [ATS-9] EC2에서 `aws ecr describe-images` 실행 시 `Unable to locate credentials`가 발생해 ECR lifecycle policy 자동 삭제 결과를 직접 조회하지 못하고 있다. 배포 자체는 SHA `c887811e09fe96e21492e317eb2271eb7db8ac56` 기준으로 성공했다.
+- [T-120] [ATS-9] AWS ECR 공식 문서상 lifecycle policy는 조건 충족 후 최대 24시간 내에 적용될 수 있다. 따라서 현재 잔존 3개는 즉시 실패로 단정하지 않고, 24시간 경과 후 재확인이 필요하다.
 
 ## 다음 작업
 
-1. [T-120] [ATS-5] backend/frontend ECR 저장소를 24시간 경과 후 다시 확인해 오래된 tagged image index가 정리됐는지 검증한다.
-2. [T-117] 필요하면 EC2에 ECR 조회 가능한 IAM Role 또는 AWS credential을 부여한 뒤 CLI로 lifecycle policy 결과를 재검증한다.
+1. [T-120] [ATS-9] backend/frontend ECR 저장소를 24시간 경과 후 다시 확인해 오래된 tagged image index가 정리됐는지 검증한다.
+2. [T-117] [ATS-9] 필요하면 EC2에 ECR 조회 가능한 IAM Role 또는 AWS credential을 부여한 뒤 CLI로 lifecycle policy 결과를 재검증한다.
