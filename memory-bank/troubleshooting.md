@@ -236,12 +236,12 @@ backend/frontend ECR 저장소에 lifecycle policy를 최신 1개 유지 목적�
 
 ### 원인
 
-아직 확정되지 않았다. 정책 조건이 현재 ECR 이미지 구조와 정확히 맞지 않거나, lifecycle policy 실행이 즉시 반영되지 않았을 가능성이 있다.
+AWS ECR 공식 문서 기준으로 lifecycle policy는 이미지가 조건을 만족한 뒤 최대 24시간 내에 적용될 수 있다. 또한 이미지가 manifest list(image index)에 의해 참조되는 경우 manifest list가 먼저 삭제되어야 한다. 2026-06-16 확인 시점은 재배포 직후였기 때문에, tagged image index 3개 잔존은 정책 미동작보다 실행 지연 구간일 가능성이 더 크다.
 
 ### 해결
 
-2026-06-16 기준으로는 배포 성공과 현재 잔존 개수만 확인했다. 후속 작업에서 lifecycle policy 설정값, 태그 조건, 실행 지연 여부를 다시 점검해야 한다.
+2026-06-16 기준으로는 배포 성공과 현재 잔존 개수, 그리고 AWS 문서상의 적용 지연 조건을 확인했다. 후속 작업에서는 24시간 경과 후 backend/frontend 저장소를 다시 확인해 실제 만료가 반영되는지 검증해야 한다.
 
 ### 재발 방지
 
-ECR lifecycle policy는 저장 직후 바로 기대 결과가 반영된다고 가정하지 않는다. 정책 적용 후에는 AWS Console 또는 CLI로 실제 남은 tagged image index 개수를 확인하고, 정책 문구와 실제 이미지 구조가 일치하는지 검토한다.
+ECR lifecycle policy는 저장 직후 바로 기대 결과가 반영된다고 가정하지 않는다. 정책 적용 후에는 24시간 유예 가능성을 고려해 재확인 시점을 잡고, AWS Console 또는 CLI로 실제 남은 tagged image index 개수를 다시 검증한다. manifest list(image index)와 하위 image의 관계도 함께 본다.

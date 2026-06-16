@@ -1,13 +1,14 @@
 # Tasks
 
 ## Next
-- [T-119] [ATS-5] Investigate why the ECR lifecycle policy keeps three tagged image indexes instead of only the newest one.
+- [T-120] [ATS-5] Recheck the backend/frontend ECR repositories after the 24-hour lifecycle window to confirm older tagged image indexes are expired.
 ## In Progress
 - 없음
 ## Blocked
 - [T-117] [ATS-5] ECR lifecycle validation deployment succeeded, but EC2 could not directly query backend/frontend cleanup results because `aws ecr describe-images` returned `Unable to locate credentials`.
 ## Done
 
+- [T-119] [ATS-5] Investigate why the ECR lifecycle policy keeps three tagged image indexes instead of only the newest one. (done: 2026-06-16)
 - [T-118] [ATS-5] Verify the ECR lifecycle policy result through AWS Console or ECR read access. (done: 2026-06-16)
 
 - [T-001] 초기 PRD 작성 (done: 2026-06-05)
