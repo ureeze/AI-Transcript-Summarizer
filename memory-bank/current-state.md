@@ -2,7 +2,7 @@
 
 ## 현재 마일스톤
 
-[ATS-1] Prepare MVP for Production Deployment
+[ATS-1] Prepare MVP for Production Deployment 완료
 
 ## 진행 중 작업
 
@@ -37,13 +37,13 @@
 - [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 성공 (done: 2026-06-16)
 - [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용 완료 (done: 2026-06-16)
 - [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 완료 (done: 2026-06-16)
+- [T-073] [ATS-6] `develop -> main` PR #1 검토 및 병합 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
 - [T-069] [ATS-2] YouTube `timedtext` 자막 엔드포인트가 공개 자막이 있는 영상에서도 200 응답과 빈 본문을 반환해 URL 입력부터 요약 결과까지의 전체 성공 흐름 검증이 보류되었다.
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
-- [T-073] [ATS-6] `develop -> main` PR #1은 배포 준비 단계에서 다시 확인해야 한다.
 
 ## 다음 작업
 
-1. [T-073] [ATS-6] 운영 배포 검증 결과를 기준으로 `develop -> main` PR #1을 검토한다.
+1. [T-110] [ATS-2] YouTube 비공식 자막 추출 실패에 대비한 대체 전략을 검토한다.
