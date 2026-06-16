@@ -76,6 +76,41 @@ class AiTranscriptSummarizerApplicationTests {
     }
 
     @Test
+    void summarizeAcceptsDirectTranscriptFallback() throws Exception {
+        when(openAiSummaryClient.summarize("직접 입력한 자막입니다. 충분한 길이를 가진 테스트 자막 내용입니다. 요약이 가능해야 합니다."))
+                .thenReturn(new SummarizeResponse(
+                        List.of("요약 1", "요약 2", "요약 3"),
+                        List.of("핵심 1", "핵심 2"),
+                        List.of("AI", "Transcript")
+                ));
+
+        mockMvc.perform(post("/api/summarize")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "transcript": "직접 입력한 자막입니다. 충분한 길이를 가진 테스트 자막 내용입니다. 요약이 가능해야 합니다."
+                                }
+                                """))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.summary").isArray())
+                .andExpect(jsonPath("$.keyPoints").isArray())
+                .andExpect(jsonPath("$.keywords").isArray());
+    }
+
+    @Test
+    void summarizeRejectsShortDirectTranscript() throws Exception {
+        mockMvc.perform(post("/api/summarize")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "transcript": "너무 짧음"
+                                }
+                                """))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("최소 50자 이상의 자막 내용을 입력해주세요."));
+    }
+
+    @Test
     void summarizeReturnsErrorWhenOpenAiSummaryFails() throws Exception {
         when(youTubeTranscriptService.fetchTranscript(anyString()))
                 .thenReturn("테스트 자막입니다.");

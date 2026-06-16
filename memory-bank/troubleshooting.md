@@ -102,7 +102,7 @@ Spring Bean에 생성자가 여러 개 필요한 경우 운영 DI 생성자에 `
 
 ### 상태
 
-관찰 중
+해결
 
 ### 문제
 
@@ -197,3 +197,27 @@ AWS 콘솔과 GitHub repository Secrets에서 필요한 배포 설정을 수동�
 ### 재발 방지
 
 AWS 기반 CI/CD 검증 전에 ECR repository와 GitHub Secrets 목록을 체크리스트로 확인한다. 특히 `AWS_REGION`, AWS 인증 정보, EC2 SSH 접속 정보, `OPENAI_API_KEY`, `APP_CORS_ALLOWED_ORIGIN` 누락 여부를 먼저 확인한다. 외부 Secret 값은 채팅에 노출하지 않고 GitHub Secrets 또는 AWS IAM Role로 관리한다.
+
+---
+
+## 2026-06-16 - 재배포 후 nginx stale upstream으로 502 발생
+
+### 상태
+
+관찰 중
+
+### 문제
+
+GitHub repository `OPENAI_API_KEY` Secret 수정 반영 여부를 검증하기 위해 deploy workflow를 다시 실행한 뒤, EC2의 `deploy/.env`에는 정상 길이의 키가 반영되었지만 운영 URL의 `/`와 `/api/summarize`가 모두 502를 반환했다.
+
+### 원인
+
+deploy workflow가 frontend, backend 컨테이너를 재생성한 뒤 nginx 컨테이너는 그대로 유지했다. 이 상태에서 nginx upstream이 이전 컨테이너 IP를 계속 바라보며 stale upstream이 되었고, `/` 요청은 예전 frontend IP로, `/api` 요청은 예전 backend IP로 연결을 시도하면서 502가 발생했다.
+
+### 해결
+
+운영 서버에서 `docker compose up -d --no-build --force-recreate nginx`를 수동 실행해 nginx를 재생성했고, 이후 운영 URL의 `/`가 200으로 복구되었으며 direct transcript fallback 요약 API도 다시 200 응답을 반환했다. 저장소의 `.github/workflows/deploy.yml`도 `docker compose up -d --no-build --force-recreate nginx frontend backend`로 수정했다.
+
+### 재발 방지
+
+앱 컨테이너를 재생성하는 배포에서는 nginx도 함께 재생성하거나, upstream 재해석이 가능한 방식으로 reverse proxy를 구성한다. `develop` 배포 재검증에서 `/` 200 응답과 direct transcript fallback 200 응답을 확인했으므로, 이후에도 배포 후 동일 smoke test를 기본 절차로 유지한다.

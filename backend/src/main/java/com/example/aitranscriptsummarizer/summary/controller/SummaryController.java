@@ -3,7 +3,6 @@ package com.example.aitranscriptsummarizer.summary.controller;
 import com.example.aitranscriptsummarizer.summary.dto.SummarizeRequest;
 import com.example.aitranscriptsummarizer.summary.dto.SummarizeResponse;
 import com.example.aitranscriptsummarizer.summary.service.SummaryService;
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +21,8 @@ public class SummaryController {
     }
 
     @PostMapping("/summarize")
-    public SummarizeResponse summarize(@Valid @RequestBody SummarizeRequest request) {
+    public SummarizeResponse summarize(@RequestBody SummarizeRequest request) {
+        request.validate();
         return summaryService.summarize(request);
     }
 }

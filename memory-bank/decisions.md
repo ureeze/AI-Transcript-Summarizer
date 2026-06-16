@@ -668,3 +668,35 @@ AWS EC2 기반 배포에서 컨테이너 이미지 저장소를 GHCR에서 Amazo
 - `memory-bank/tech-stack.md`
 - `memory-bank/current-state.md`
 - `memory-bank/tasks.md`
+
+## ADR-018 YouTube 자막 추출 실패 시 transcript 직접 입력 fallback 채택
+
+### 날짜
+
+2026-06-16
+
+### 상태
+
+채택 (Approved)
+
+### 결정
+
+YouTube 비공식 자막 추출이 실패하면 사용자가 transcript를 직접 입력해 요약을 계속 진행할 수 있는 fallback 전략을 채택한다.
+
+### 이유
+
+현재 MVP는 YouTube 공개 자막 응답 구조 변경이나 `timedtext` 빈 본문 응답에 영향을 받을 수 있다. 배포는 완료되었지만 자막 추출 실패가 전체 요약 흐름 실패로 이어지면 서비스 사용성이 크게 떨어진다. transcript 직접 입력 fallback은 외부 플랫폼 구조 변화와 분리된 가장 단순하고 빠른 복구 경로이며, MVP 범위를 크게 벗어나지 않으면서도 실패 상황에서 사용자 작업을 계속 이어갈 수 있게 한다.
+
+### 고려한 대안
+
+- 현재 비공식 자막 추출 방식만 유지
+- 다른 비공식 추출 라이브러리 또는 엔드포인트 추가 도입
+- YouTube 공식 API 또는 제3자 transcript 서비스 도입
+- 자막 추출 실패 시 transcript 직접 입력 fallback 도입
+
+### 영향 범위
+
+- `memory-bank/architecture.md`에 입력 및 데이터 흐름 fallback을 반영한다.
+- 프론트엔드는 자막 추출 실패 시 transcript 직접 입력 UI를 제공하는 방향으로 확장한다.
+- 백엔드는 YouTube URL 기반 요청 외에 transcript 직접 입력 기반 요약 요청도 처리할 수 있도록 확장 검토가 필요하다.
+- 다음 구현 작업은 fallback UI/API 설계와 검증 흐름 추가가 된다.

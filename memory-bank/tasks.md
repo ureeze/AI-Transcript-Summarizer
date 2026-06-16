@@ -2,7 +2,7 @@
 
 ## Next
 
-- [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합
+- [T-116] [ATS-6] 최신 `develop` 기준 운영 검증 결과를 바탕으로 `develop -> main` 배포 PR을 검토하고 병합 여부를 결정한다.
 
 ## In Progress
 
@@ -10,7 +10,7 @@
 
 ## Blocked
 
-- [T-069] [ATS-2] 로컬 전체 요약 흐름 검증은 YouTube `timedtext` 자막 응답이 빈 본문을 반환해 대기
+- 없음
 
 ## Done
 
@@ -121,3 +121,10 @@
 - [T-106] [ATS-5] ECR repository와 GitHub Secrets 설정 후 GitHub Actions 배포 workflow 수동 실행 (done: 2026-06-16)
 - [T-071] [ATS-4] AWS EC2 서버에 Docker Compose 배포 적용 (done: 2026-06-16)
 - [T-075] [ATS-4/ATS-5] 배포된 서비스의 프론트엔드 화면, URL 입력, 백엔드 API 호출, 에러 메시지 흐름 검증 (done: 2026-06-16)
+- [T-073] [ATS-6] 운영 배포 검증 후 PR #1(`develop` -> `main`) 검토 및 병합 (done: 2026-06-16)
+- [T-110] [ATS-2] YouTube 비공식 자막 추출 실패 시 transcript 직접 입력 fallback 전략을 결정한다. (done: 2026-06-16)
+- [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI와 API 확장 방식을 구현한다. (done: 2026-06-16)
+- [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 병합 후 운영 환경에서 검증한다. (done: 2026-06-16)
+- [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인을 확인하고 수정한다. (done: 2026-06-16)
+- [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret 수정 반영 여부를 재배포로 검증하고 direct transcript fallback 유지 여부를 확인한다. (done: 2026-06-16)
+- [T-115] [ATS-5] deploy workflow의 nginx 재생성 변경이 `develop` 배포에서도 502 재발을 막는지 최종 검증한다. (done: 2026-06-16)

@@ -2,7 +2,6 @@ package com.example.aitranscriptsummarizer.summary.exception;
 
 import com.example.aitranscriptsummarizer.summary.dto.ApiErrorResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -22,15 +21,9 @@ public class SummaryExceptionHandler {
         return new ApiErrorResponse(exception.getMessage());
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ExceptionHandler(InvalidSummarizeRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleValidation(MethodArgumentNotValidException exception) {
-        String message = exception.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .findFirst()
-                .map(fieldError -> fieldError.getDefaultMessage())
-                .orElse("요청 값을 확인해주세요.");
-        return new ApiErrorResponse(message);
+    public ApiErrorResponse handleInvalidRequest(InvalidSummarizeRequestException exception) {
+        return new ApiErrorResponse(exception.getMessage());
     }
 }
