@@ -10,6 +10,7 @@
 
 ## 최근 완료 작업
 
+- [T-122] Memory Bank 작업 문구는 한국어로 작성한다는 규칙을 반영하고 `tasks.md`의 최근 영어 작업 항목을 한국어로 정리했다. (done: 2026-06-17)
 - [T-121] Jira 작업 보드를 실제 프로젝트 상태에 맞게 정리했다. `ATS-2`, `ATS-4`, `ATS-5`, `ATS-6`을 완료로 맞추고, 후속 검증 작업 `ATS-9`를 생성했으며 에픽 `ATS-1`을 진행 중으로 갱신했다. (done: 2026-06-17)
 - [T-119] [ATS-5] AWS ECR 공식 문서를 기준으로 lifecycle policy는 조건 충족 후 최대 24시간 내에 적용될 수 있고, manifest list(image index) 참조 관계도 고려해야 함을 확인했다. 현재 3개 잔존은 즉시 실패 증거로 단정할 수 없다. (done: 2026-06-16)
 - [T-118] [ATS-5] AWS Console 확인 결과 backend/frontend ECR 저장소 모두 tagged image index가 3개씩 남아 있음을 확인했다. lifecycle policy는 아직 기대한 결과를 만들지 못했다. (done: 2026-06-16)

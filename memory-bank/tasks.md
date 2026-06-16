@@ -1,16 +1,17 @@
 # Tasks
 
 ## Next
-- [T-120] [ATS-9] Recheck the backend/frontend ECR repositories after the 24-hour lifecycle window to confirm older tagged image indexes are expired.
+- [T-120] [ATS-9] backend/frontend ECR 저장소를 24시간 경과 후 다시 확인해 오래된 tagged image index가 정리됐는지 검증한다.
 ## In Progress
 - 없음
 ## Blocked
-- [T-117] [ATS-9] ECR lifecycle validation deployment succeeded, but EC2 could not directly query backend/frontend cleanup results because `aws ecr describe-images` returned `Unable to locate credentials`.
+- [T-117] [ATS-9] ECR lifecycle 검증 배포는 성공했지만, EC2에서 `aws ecr describe-images` 실행 시 `Unable to locate credentials`가 발생해 backend/frontend 정리 결과를 직접 조회하지 못했다.
 ## Done
 
-- [T-121] Sync Jira issue statuses with the actual project state and create follow-up Jira issue `ATS-9`. (done: 2026-06-17)
-- [T-119] [ATS-5] Investigate why the ECR lifecycle policy keeps three tagged image indexes instead of only the newest one. (done: 2026-06-16)
-- [T-118] [ATS-5] Verify the ECR lifecycle policy result through AWS Console or ECR read access. (done: 2026-06-16)
+- [T-122] Memory Bank 작업 문구 한국어 규칙을 반영하고 최근 영어 작업 항목을 한국어로 정리했다. (done: 2026-06-17)
+- [T-121] Jira 작업 상태를 실제 프로젝트 상태에 맞게 정리하고 후속 Jira 이슈 `ATS-9`를 생성했다. (done: 2026-06-17)
+- [T-119] [ATS-5] ECR lifecycle policy가 최신 tagged image index 1개만 남기지 않고 3개를 유지하는 이유를 조사했다. (done: 2026-06-16)
+- [T-118] [ATS-5] AWS Console 또는 ECR 조회 권한을 통해 lifecycle policy 결과를 검증했다. (done: 2026-06-16)
 
 - [T-001] 초기 PRD 작성 (done: 2026-06-05)
 - [T-002] 초기 Memory Bank 구성 (done: 2026-06-05)
