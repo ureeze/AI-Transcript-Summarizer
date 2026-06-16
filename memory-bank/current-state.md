@@ -40,12 +40,15 @@
 - [T-073] [ATS-6] `develop -> main` PR #1 검토 및 병합 완료 (done: 2026-06-16)
 - [T-110] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback 전략 결정 완료 (done: 2026-06-16)
 - [T-111] [ATS-2] YouTube 자막 추출 실패 시 transcript 직접 입력 fallback UI/API 구현 및 로컬 검증 완료 (done: 2026-06-16)
+- [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 배포 후 운영 환경에서 검증 완료 (done: 2026-06-16)
+- [T-113] [ATS-2] 운영 환경 direct transcript 요약 실패 원인 확인 및 EC2 `OPENAI_API_KEY` 교정 완료 (done: 2026-06-16)
+- [T-114] [ATS-5] GitHub repository `OPENAI_API_KEY` Secret 수정이 재배포에 반영되는지 검증 완료, Secret 값 정상 반영 확인 및 운영 direct transcript fallback 복구 완료 (done: 2026-06-16)
 
 ## 열린 이슈
 
 - YouTube 비공식 공개 자막 추출 방식은 YouTube 응답 구조 변경에 영향을 받을 수 있다.
-- [T-112] [ATS-2] transcript 직접 입력 fallback 구현은 로컬 검증까지 완료되었지만 운영 환경 반영과 실제 실패 시나리오 검증이 아직 남아 있다.
+- [T-115] [ATS-5] 현재 feature 브랜치에서 deploy workflow의 nginx 재생성 수정을 적용했다. 이 변경이 `develop` 배포에서도 stale upstream 502 재발을 막는지는 아직 최종 검증되지 않았다.
 
 ## 다음 작업
 
-1. [T-112] [ATS-2] transcript 직접 입력 fallback 구현을 `develop` 병합 후 운영 환경에서 검증한다.
+1. [T-115] [ATS-5] deploy workflow의 nginx 재생성 변경을 `develop`에 반영한 뒤 재배포에서 502가 재발하지 않는지 최종 검증한다.
